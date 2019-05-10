@@ -1,24 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Muses</title>
-    <link>/</link>
-    <description>Recent content on Muses</description>
+    <title>Posts on Muses</title>
+    <link>/posts/</link>
+    <description>Recent content in Posts on Muses</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 10 May 2019 13:29:41 +0100</lastBuildDate>
     
-	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>Contributors</title>
-      <link>/contributors/</link>
-      <pubDate>Fri, 10 May 2019 13:29:41 +0100</pubDate>
-      
-      <guid>/contributors/</guid>
-      <description>Muses is under active development by Benedict R. Gaster and Nathan Renney, along with contrabutions from Carinna Parraman and others.</description>
-    </item>
     
     <item>
       <title>Muses - Digital Musical Instruments</title>
@@ -27,15 +18,6 @@
       
       <guid>/posts/hello/</guid>
       <description>Muses is an umbrella project for work being done in the Physical Computing Group at University of West of England (UWE). Our particular focus is applying programming language theory and practice, physical computing, networking, and musicial theory to design and implementation of Digitial Musical Instruments (DMI).</description>
-    </item>
-    
-    <item>
-      <title>Projects</title>
-      <link>/projects/</link>
-      <pubDate>Fri, 10 May 2019 13:29:41 +0100</pubDate>
-      
-      <guid>/projects/</guid>
-      <description> SVG Interfaces Muses Audio Formalizing Faust in terms of Arrows Modeling Drum Skins with FDTD </description>
     </item>
     
   </channel>
