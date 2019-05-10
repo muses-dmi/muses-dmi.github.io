@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>/papers/</loc>
+    <lastmod>2019-05-10T15:07:52+01:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/contributors/</loc>
     <lastmod>2019-05-10T13:29:41+01:00</lastmod>
   </url>
