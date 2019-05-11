@@ -20,5 +20,15 @@
       <description>SVG Interfaces is an on going project exploring the design and implementation of custom controller interfaces, bridging the issue of user mapping between action and sound in interactive music systems. We have developed a simple framework utilizing functional specifications for musical interfaces and their mappings. The system is based on a subset of Scalable Vector Graphics (SVG); interfaces are described using a simple Haskell based &amp;lsquo;controller DSL&amp;rsquo; or equally using a vector drawing application (i.</description>
     </item>
     
+    <item>
+      <title>Projects</title>
+      <link>/projects/projects/</link>
+      <pubDate>Fri, 10 May 2019 13:29:41 +0100</pubDate>
+      
+      <guid>/projects/projects/</guid>
+      <description> SVG Interfaces SVG Interfaces
+Muses Audio Formalizing Faust in terms of Arrows Modeling Drum Skins with FDTD </description>
+    </item>
+    
   </channel>
 </rss>
