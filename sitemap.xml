@@ -3,7 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>/projects/svg_interfaces/</loc>
+    <loc>/projects_src/svg_interfaces/</loc>
     <lastmod>2019-05-11T08:16:30+01:00</lastmod>
   </url>
   
@@ -28,7 +28,7 @@
   </url>
   
   <url>
-    <loc>/projects/projects/</loc>
+    <loc>/projects/</loc>
     <lastmod>2019-05-10T13:29:41+01:00</lastmod>
   </url>
   
@@ -44,7 +44,7 @@
   </url>
   
   <url>
-    <loc>/projects/</loc>
+    <loc>/projects_src/</loc>
     <lastmod>2019-05-11T08:16:30+01:00</lastmod>
     <priority>0</priority>
   </url>
