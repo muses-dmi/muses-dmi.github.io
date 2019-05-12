@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="40mm" viewBox="0 0 90 40" width="90mm" version="1.11.1" interface_device="sensel">
+  <rect interface_osc_address="/stop" height="25" interface_type="pad" width="25" x="27" y="2"/>
+  <polygon interface_osc_address="/play" points="22 14 2 2 2 27 22 14" interface_type="pad"/>
+  <circle interface_osc_address="/record" interface_type="pad" cy="14" r="12" cx="69"/>
+  <rect  
+         width="82" height="30" 
+         fill-opacity="0.0"
+         stroke = "rgb(96,95,164)" 
+         stroke-width="1.0"
+         x="0" y="0"
+         interface_type="border" />
+</svg>

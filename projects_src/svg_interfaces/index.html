@@ -6,7 +6,7 @@
   
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-<meta name="description" content="SVG Interfaces is an on going project exploring the design and implementation of custom controller interfaces, bridging the issue of user mapping between action and sound in interactive music systems. We have developed a simple framework utilizing functional specifications for musical interfaces and their mappings. The system is based on a subset of Scalable Vector Graphics (SVG); interfaces are described using a simple Haskell based &amp;lsquo;controller DSL&amp;rsquo; or equally using a vector drawing application (i."/>
+<meta name="description" content="Overview SVG Interfaces is an on going project exploring the design and implementation of custom controller interfaces, bridging the issue of user mapping between action and sound in interactive music systems. We have developed a simple framework utilizing functional specifications for musical interfaces and their mappings. The system is based on a subset of Scalable Vector Graphics (SVG); interfaces are described using a simple Haskell based &amp;lsquo;controller DSL&amp;rsquo; or equally using a vector drawing application (i."/>
 <meta name="keywords" content=""/>
 <meta name="robots" content="noodp"/>
 <link rel="canonical" href="/projects_src/svg_interfaces/" />
@@ -29,7 +29,7 @@
 
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:title" content="SVG Interfaces :: Muses — Digital Musical Instruments" />
-<meta name="twitter:description" content="SVG Interfaces is an on going project exploring the design and implementation of custom controller interfaces, bridging the issue of user mapping between action and sound in interactive music systems. We have developed a simple framework utilizing functional specifications for musical interfaces and their mappings. The system is based on a subset of Scalable Vector Graphics (SVG); interfaces are described using a simple Haskell based &amp;lsquo;controller DSL&amp;rsquo; or equally using a vector drawing application (i." />
+<meta name="twitter:description" content="Overview SVG Interfaces is an on going project exploring the design and implementation of custom controller interfaces, bridging the issue of user mapping between action and sound in interactive music systems. We have developed a simple framework utilizing functional specifications for musical interfaces and their mappings. The system is based on a subset of Scalable Vector Graphics (SVG); interfaces are described using a simple Haskell based &amp;lsquo;controller DSL&amp;rsquo; or equally using a vector drawing application (i." />
 <meta name="twitter:site" content="/" />
 <meta name="twitter:creator" content="" />
 <meta name="twitter:image" content="">
@@ -38,7 +38,7 @@
 <meta property="og:locale" content="en" />
 <meta property="og:type" content="article" />
 <meta property="og:title" content="SVG Interfaces :: Muses — Digital Musical Instruments">
-<meta property="og:description" content="SVG Interfaces is an on going project exploring the design and implementation of custom controller interfaces, bridging the issue of user mapping between action and sound in interactive music systems. We have developed a simple framework utilizing functional specifications for musical interfaces and their mappings. The system is based on a subset of Scalable Vector Graphics (SVG); interfaces are described using a simple Haskell based &amp;lsquo;controller DSL&amp;rsquo; or equally using a vector drawing application (i." />
+<meta property="og:description" content="Overview SVG Interfaces is an on going project exploring the design and implementation of custom controller interfaces, bridging the issue of user mapping between action and sound in interactive music systems. We have developed a simple framework utilizing functional specifications for musical interfaces and their mappings. The system is based on a subset of Scalable Vector Graphics (SVG); interfaces are described using a simple Haskell based &amp;lsquo;controller DSL&amp;rsquo; or equally using a vector drawing application (i." />
 <meta property="og:url" content="/projects_src/svg_interfaces/" />
 <meta property="og:site_name" content="SVG Interfaces" />
 <meta property="og:image" content="">
@@ -144,15 +144,96 @@
   <div class="post-content">
     
 
+<h1 id="overview">Overview</h1>
+
 <p>SVG Interfaces is an on going project exploring the design and implementation of
 custom controller interfaces, bridging the issue of user mapping between action
 and sound in interactive music systems. We have developed a simple framework
-utilizing functional specifications for musical interfaces and their mappings. The system
-is based on a subset of Scalable Vector Graphics (SVG); interfaces
-are described using a simple Haskell based &lsquo;controller DSL&rsquo; or equally using
-a vector drawing application (i.e. Illustrator).</p>
+utilizing functional specifications for musical interfaces and their mappings.
+The system is based on a subset of Scalable Vector Graphics (SVG); interfaces
+are described using a simple Haskell based &lsquo;controller DSL&rsquo; or equally using a
+vector drawing application (i.e. Illustrator).</p>
 
-<h2 id="an-example">An Example</h2>
+<pre><code class="language-haskell">stop ! #x 3 ! #y 3 ! #size 3 
+</code></pre>
+
+<p>More generally a stop button is an instance a pad and could just as easily be
+defined as such:</p>
+
+<pre><code class="language-haskell">pad ! #x 3 ! #y 3 ! #size 3 ! #address &quot;/stop/&quot; 
+</code></pre>
+
+<p>In both cases the following SVG code is produced:</p>
+
+<pre><code class="language-svg">&lt;rect interface_osc_address=&quot;/midicc&quot; 
+      width=&quot;3&quot; height=&quot;3&quot; 
+      interface_type=&quot;pad&quot;  
+      interface_osc_args=&quot;100 &quot; 
+      x=&quot;3&quot; y=&quot;3&quot;/&gt;
+</code></pre>
+
+<p>At this point we have defined only a controller, to create a valid interface, we
+must wrap any controllers within an interface itself. It it most simple form
+this can be found defining the function <code>interface</code>, so:</p>
+
+<pre><code class="language-haskell">interface = stop ! #x 3 ! #y 3 ! #size 3 
+</code></pre>
+
+<p>defines the complete interface:</p>
+
+<pre><code class="language-svg">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE svg PUBLIC &quot;-//W3C//DTD SVG 1.1//EN&quot;
+    &quot;http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd&quot;&gt;
+      &lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; 
+        height=&quot;15mm&quot; width=&quot;15mm&quot;
+        viewBox=&quot;0 0 15 15&quot;  
+        xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; 
+        version=&quot;1.11.1&quot; 
+        interface_device=&quot;lightpad&quot;&gt;
+        &lt;rect interface_osc_address=&quot;/midicc&quot; 
+         width=&quot;3&quot; height=&quot;3&quot; 
+         interface_type=&quot;pad&quot;  
+         interface_osc_args=&quot;100 &quot; 
+         x=&quot;3&quot; y=&quot;3&quot;/&gt;
+      &lt;/svg&gt;
+</code></pre>
+
+<p>which can now be rendered:</p>
+
+<p><img class="special-img-class" style="width:25%;height:25%" src="/assets/example1.svg" /></p>
+
+<p>Here the border just highlights the interface&rsquo;s surrounding edge and plays no
+part in the final interface. For many interfaces the colour of a controller does
+not play a part, hence the default black, but for some, it can be used to
+control some aspect of the interface,  e.g. ROLI&rsquo;s Lightpad have RGB LEDS. For
+this a standard SVG <strong>fill</strong> attribute can be added:</p>
+
+<pre><code class="language-haskell">stop ! #x 3 ! #y 3 ! #size 3 # fill &quot;rgb(217,137,188)&quot;
+</code></pre>
+
+<p>and now renderers as:</p>
+
+<p><img class="special-img-class" style="width:25%;height:25%" src="/assets/example2.svg" /></p>
+
+<p>More complex interfaces are composed from smaller ones using the combinator &lt;&gt;, the following
+implements a simple interface with stop, play, and record controls:</p>
+
+<pre><code class="language-haskell">stop ! #x 27 ! #y 2 ! #size 25
+&lt;&gt;
+play ! #v1 (22,14) ! #v2 (2,2) ! #v3 (2,27)
+&lt;&gt;
+record ! #x 69 ! #y 14 ! #r 12
+</code></pre>
+
+<p>And as a rendered SVG:</p>
+
+<p><img class="special-img-class" style="width:40%;height:40%" src="/assets/example3.svg" /></p>
+
+<h1 id="a-full-example">A Full Example</h1>
+
+<p>A more complete example is shown in the following SVG interface code for a four
+button (pad) and four slider controller interface designed for ROLI&rsquo;s
+<a href="https://roli.com/products/blocks/lightpad-m">Lightpad</a>:</p>
 
 <pre><code class="language-haskell">lightpad = 
     mconcat (map p [(0,100), (4, 101), (8, 102), (12, 103)])
@@ -165,11 +246,36 @@ a vector drawing application (i.e. Illustrator).</p>
         vertSlider ! #x x ! #y 4
                    ! #width 3 ! #height 11 ! #min 0 ! #max 127 ! #address &quot;/midicc&quot; 
                    # fill &quot;rgb(96,95,164)&quot; # iargs [cc]
+
+interface = lightpad
 </code></pre>
 
-<p>Rendered as an SVG:</p>
+<p>This example demostrates the power of a programmatic approach, here combining
+well known higher order functions, e.g. map, from function programming to
+recursively layout the multiple pads and sliders.</p>
+
+<p>The above SVG interface specification is complied to an SVG with the <a href="https://github.com/muses-dmi/svg-creator">SVG
+Creator tool</a>. The SVG, created with
+SVG Creator, is rendered as:</p>
 
 <p><img class="special-img-class" style="width:50%;height:50%" src="/assets/lightpad.svg" /></p>
+
+<h1 id="more-information">More Information</h1>
+
+<p>Tool and documentation for specification of interfaces as SVGs:</p>
+
+<ul>
+<li><a href="https://github.com/muses-dmi/svg-creator">SVG Creator tool</a>.</li>
+<li><a href="https://github.com/muses-dmi/svg-creator/blob/master/docs/interfaces.md">SVG Interface Documentation</a>.</li>
+</ul>
+
+<p>Tools for translating SVG Interfaces to the JSON intermidiate representation and different backends:</p>
+
+<ul>
+<li><a href="https://github.com/muses-dmi/svg_interface">SVG Interface to IR tool</a>.</li>
+<li><a href="https://github.com/muses-dmi/svg-littlefoot">Interface IR to Littlefoot tool</a>.</li>
+<li><a href="https://github.com/muses-dmi/sensel_osc">SVG Sensel Driver</a>.</li>
+</ul>
 
   </div>
   
