@@ -154,10 +154,30 @@ The system is based on a subset of Scalable Vector Graphics (SVG); interfaces
 are described using a simple Haskell based &lsquo;controller DSL&rsquo; or equally using a
 vector drawing application (i.e. Illustrator).</p>
 
+<p>SVG Interfaces a designed as portable format for specifying control interfaces
+independenlty of any particular device, however, to show their practical use we
+have developed example backends for ROLI&rsquo;s
+<a href="https://roli.com/products/blocks/lightpad-m">Lightpad-M</a> and Sensel&rsquo;s
+<a href="https://sensel.com/pages/the-sensel-morph">Morph</a>.</p>
+
+<p>The details of designing a control interface and supproting tools are detailed
+in the <a href="https://github.com/muses-dmi/svg-creator/blob/master/docs/interfaces.md">SVG Interface
+Documentation</a>,
+and additionaly below is a short introduction to SVG Interface design.</p>
+
+<p>Interfaces can be described using the Contoller DSL, for example, a common
+controller is a <strong>stop</strong> button, which emits a stop message each time it is
+pressed:</p>
+
 <pre><code class="language-haskell">stop ! #x 3 ! #y 3 ! #size 3 
 </code></pre>
 
-<p>More generally a stop button is an instance a pad and could just as easily be
+<p>Similar to SVG attributes named labels are used to pass information about
+particular attributes of a controller, in this case a stop button has an x and y
+postion for its top left corner and a size, which sets its width and height in
+millimetres.</p>
+
+<p>More generally, a stop button is an instance of a <strong>pad</strong> and could just as easily be
 defined as such:</p>
 
 <pre><code class="language-haskell">pad ! #x 3 ! #y 3 ! #size 3 ! #address &quot;/stop/&quot; 
@@ -165,10 +185,10 @@ defined as such:</p>
 
 <p>In both cases the following SVG code is produced:</p>
 
-<pre><code class="language-svg">&lt;rect interface_osc_address=&quot;/midicc&quot; 
+<pre><code class="language-svg">&lt;rect interface_osc_address=&quot;/stop/&quot; 
       width=&quot;3&quot; height=&quot;3&quot; 
       interface_type=&quot;pad&quot;  
-      interface_osc_args=&quot;100 &quot; 
+      interface_osc_args=&quot;&quot; 
       x=&quot;3&quot; y=&quot;3&quot;/&gt;
 </code></pre>
 
@@ -190,10 +210,10 @@ this can be found defining the function <code>interface</code>, so:</p>
         xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; 
         version=&quot;1.11.1&quot; 
         interface_device=&quot;lightpad&quot;&gt;
-        &lt;rect interface_osc_address=&quot;/midicc&quot; 
+        &lt;rect interface_osc_address=&quot;/stop/&quot; 
          width=&quot;3&quot; height=&quot;3&quot; 
          interface_type=&quot;pad&quot;  
-         interface_osc_args=&quot;100 &quot; 
+         interface_osc_args=&quot;&quot; 
          x=&quot;3&quot; y=&quot;3&quot;/&gt;
       &lt;/svg&gt;
 </code></pre>
