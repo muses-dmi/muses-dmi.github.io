@@ -3,7 +3,12 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>/projects_src/svg_interfaces/</loc>
+    <loc>/not_src/not/</loc>
+    <lastmod>2019-06-06T08:16:30+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/svg_interfaces_src/svg_interfaces/</loc>
     <lastmod>2019-05-11T08:16:30+01:00</lastmod>
   </url>
   
@@ -38,13 +43,19 @@
   </url>
   
   <url>
+    <loc>/not_src/</loc>
+    <lastmod>2019-06-06T08:16:30+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>/posts/</loc>
     <lastmod>2019-05-10T13:29:41+01:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/projects_src/</loc>
+    <loc>/svg_interfaces_src/</loc>
     <lastmod>2019-05-11T08:16:30+01:00</lastmod>
     <priority>0</priority>
   </url>

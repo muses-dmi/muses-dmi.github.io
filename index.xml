@@ -12,11 +12,21 @@
     
     
     <item>
+      <title>Notions of Time</title>
+      <link>/not_src/not/</link>
+      <pubDate>Thu, 06 Jun 2019 08:16:30 +0100</pubDate>
+      
+      <guid>/not_src/not/</guid>
+      <description> Overview More Information Tools and documentation for the current implementation of notions of time:
+ Haskell source code.  </description>
+    </item>
+    
+    <item>
       <title>SVG Interfaces</title>
-      <link>/projects_src/svg_interfaces/</link>
+      <link>/svg_interfaces_src/svg_interfaces/</link>
       <pubDate>Sat, 11 May 2019 08:16:30 +0100</pubDate>
       
-      <guid>/projects_src/svg_interfaces/</guid>
+      <guid>/svg_interfaces_src/svg_interfaces/</guid>
       <description>Overview SVG Interfaces is an on going project exploring the design and implementation of custom controller interfaces, bridging the issue of user mapping between action and sound in interactive music systems. We have developed a simple framework utilizing functional specifications for musical interfaces and their mappings. The system is based on a subset of Scalable Vector Graphics (SVG); interfaces are described using a simple Haskell based &amp;lsquo;controller DSL&amp;rsquo; or equally using a vector drawing application (i.</description>
     </item>
     
@@ -57,7 +67,7 @@ Gaster, B. R., Renney, N. and Mitchell, T. (2018) Outside the block syndicate: T
       <guid>/projects/</guid>
       <description>SVG Interfaces SVG Interfaces is an on going project exploring the design and implementation of custom controller interfaces, bridging the issue of user mapping between action and sound in interactive music systems.
 More information can be found here.
-Muses Audio The Muses audio platform supports multiple sequencers, audio synthesis engines, effect sends, and a 4 track style digital tape recorder. We have developed Muses as a research platform for studying the design and implementation of Digital Musicial Instruments (DMIs).</description>
+Notions of Time Music provides a means to explore time by sequencing musical events in a seemingly endless and expressive way. This potential seems to far exceed the ability of digital systems to enable composers and performers to fully explore musical time due to the influence of Western musical traditions on implementation.</description>
     </item>
     
   </channel>
