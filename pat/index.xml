@@ -6,10 +6,22 @@
     <description>Recent content in Pats on Muses</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 06 Jun 2019 08:16:30 +0100</lastBuildDate>
+    <lastBuildDate>Fri, 09 Aug 2019 16:42:08 +0100</lastBuildDate>
     
 	<atom:link href="/pat/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Examples</title>
+      <link>/pat/examples/</link>
+      <pubDate>Fri, 09 Aug 2019 16:42:08 +0100</pubDate>
+      
+      <guid>/pat/examples/</guid>
+      <description> Audio Examples Perhaps the best way to get familiar with Pat is to take a listen.
+We can listen to an example of Pat directly converted to audio in this example:
+ To help get a feel for what is happening, we can listen to this pattern looped, with some percussion used to ground where the sequence synchronizes.
+ </description>
+    </item>
     
     <item>
       <title>Pat</title>
@@ -18,8 +30,8 @@
       
       <guid>/pat/overview/</guid>
       <description>Overview Pat is a miniature domain specific programming language (DSL) which is heavily influenced by Tidal Cycles. This language was implemented as a means to explore an abstract representation of sequences of musical events for digital musical instruments.
-With this representation, we can then provide a number of applications for music in various digital systems.
-Currently we provide an example that integrates with the Muses Audio Platform, a playground app that will be available for download and exploration soon!</description>
+We have used Pat to illustrate a number of perspectives on this and will continue to use it in future work.
+Applications - Audio Examples We can listen to an example of Pat directly converted to audio in here and get an idea of how Pat is used.</description>
     </item>
     
   </channel>
