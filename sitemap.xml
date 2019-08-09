@@ -3,7 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>/not_src/not/</loc>
+    <loc>/pat/overview/</loc>
     <lastmod>2019-06-06T08:16:30+01:00</lastmod>
   </url>
   
@@ -43,7 +43,7 @@
   </url>
   
   <url>
-    <loc>/not_src/</loc>
+    <loc>/pat/</loc>
     <lastmod>2019-06-06T08:16:30+01:00</lastmod>
     <priority>0</priority>
   </url>

@@ -8,7 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 <meta name="description" content="SVG Interfaces SVG Interfaces is an on going project exploring the design and implementation of custom controller interfaces, bridging the issue of user mapping between action and sound in interactive music systems.
 More information can be found here.
-Notions of Time Music provides a means to explore time by sequencing musical events in a seemingly endless and expressive way. This potential seems to far exceed the ability of digital systems to enable composers and performers to fully explore musical time due to the influence of Western musical traditions on implementation."/>
+Pat - DSL for exploring Polyrhythm and Polymeter Music provides a means to explore time by sequencing musical events in a seemingly endless and expressive way. Pat is a project that takes inspiration from Tidal Cycles and provides a means to explore advanced rhythmic concepts like polyrhythm and polymeter within the context of designing digital musical instruments."/>
 <meta name="keywords" content=""/>
 <meta name="robots" content="noodp"/>
 <link rel="canonical" href="/projects/" />
@@ -33,7 +33,7 @@ Notions of Time Music provides a means to explore time by sequencing musical eve
 <meta name="twitter:title" content="Projects :: Muses — Digital Musical Instruments" />
 <meta name="twitter:description" content="SVG Interfaces SVG Interfaces is an on going project exploring the design and implementation of custom controller interfaces, bridging the issue of user mapping between action and sound in interactive music systems.
 More information can be found here.
-Notions of Time Music provides a means to explore time by sequencing musical events in a seemingly endless and expressive way. This potential seems to far exceed the ability of digital systems to enable composers and performers to fully explore musical time due to the influence of Western musical traditions on implementation." />
+Pat - DSL for exploring Polyrhythm and Polymeter Music provides a means to explore time by sequencing musical events in a seemingly endless and expressive way. Pat is a project that takes inspiration from Tidal Cycles and provides a means to explore advanced rhythmic concepts like polyrhythm and polymeter within the context of designing digital musical instruments." />
 <meta name="twitter:site" content="/" />
 <meta name="twitter:creator" content="" />
 <meta name="twitter:image" content="">
@@ -44,7 +44,7 @@ Notions of Time Music provides a means to explore time by sequencing musical eve
 <meta property="og:title" content="Projects :: Muses — Digital Musical Instruments">
 <meta property="og:description" content="SVG Interfaces SVG Interfaces is an on going project exploring the design and implementation of custom controller interfaces, bridging the issue of user mapping between action and sound in interactive music systems.
 More information can be found here.
-Notions of Time Music provides a means to explore time by sequencing musical events in a seemingly endless and expressive way. This potential seems to far exceed the ability of digital systems to enable composers and performers to fully explore musical time due to the influence of Western musical traditions on implementation." />
+Pat - DSL for exploring Polyrhythm and Polymeter Music provides a means to explore time by sequencing musical events in a seemingly endless and expressive way. Pat is a project that takes inspiration from Tidal Cycles and provides a means to explore advanced rhythmic concepts like polyrhythm and polymeter within the context of designing digital musical instruments." />
 <meta property="og:url" content="/projects/" />
 <meta property="og:site_name" content="Projects" />
 <meta property="og:image" content="">
@@ -160,29 +160,29 @@ and sound in interactive music systems.</p>
 
 <p>More information can be found <a href="/svg_interfaces_src/svg_interfaces/">here</a>.</p>
 
-<h1 id="notions-of-time">Notions of Time</h1>
+<h1 id="pat-dsl-for-exploring-polyrhythm-and-polymeter">Pat - DSL for exploring Polyrhythm and Polymeter</h1>
 
 <p>Music provides a means to explore time by sequencing musical events in a
-seemingly endless and expressive way. This potential seems to far exceed the
-ability of digital systems to enable composers and performers to fully explore
-musical time due to the influence of Western musical traditions on
-implementation. In this work we look at ways to allow exploration of time
-within a musical context, looking to create tangible examples and methods for
-exploring complex rhythmic relationships.</p>
+seemingly endless and expressive way. Pat is a project that takes inspiration from <a href="https://tidalcycles.org">Tidal Cycles</a> and provides a means to explore advanced rhythmic concepts like polyrhythm and polymeter within the context of designing digital musical instruments.</p>
 
-<p>More information can be found <a href="/not_src/not/">here</a>.</p>
+<p>As a brief example, consider the following pattern and take a listen to what that may sound like below:</p>
+
+<pre><code>[ a   c   e ]   a   a    | : |    a   c   a   c  | : |    g   g   g   g   g   g   g
+</code></pre>
+
+<p>More information can be found <a href="/pat/overview/">here</a>.</p>
 
 <h1 id="muses-audio">Muses Audio</h1>
 
 <p>The Muses audio platform supports multiple sequencers, audio synthesis engines,
 effect sends, and a 4 track style digital tape recorder. We have developed Muses
 as a research platform for studying the design and implementation of Digital
-Musicial Instruments (DMIs). A recent screen shot is shown below:</p>
+Musical Instruments (DMIs). A recent screen shot is shown below:</p>
 
 <p><img class="special-img-class" style="width:50%;height:50%" src="/assets/muses-screen-shot.png" /></p>
 
 <p>For the most part it is written in the systems programming language Rust,
-supported by DSP code written in ßthe functional programming language Faust. The
+supported by DSP code written in the functional programming language Faust. The
 architecture is modular in design supporting audio engines, for both synthesis
 and effects processing, to be added easily.</p>
 
@@ -199,10 +199,10 @@ source public, but all things going well we plan to do this by the end of summer
 
 <h1 id="dsp-faust-and-arrows">DSP, Faust and Arrows</h1>
 
-<p>The application of functional programming to the field of Digitial Signal
+<p>The application of functional programming to the field of Digital Signal
 Processing is an active area of research.</p>
 
-<h1 id="physcial-modeling-with-drums-and-gpus">Physcial Modeling with Drums and GPUs</h1>
+<h1 id="physical-modeling-with-drums-and-gpus">Physical Modeling with Drums and GPUs</h1>
 
 <p><img class="special-img-class" style="width:50%;height:50%" src="/assets/plugin_interface.png" /></p>
 

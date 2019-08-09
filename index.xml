@@ -12,13 +12,14 @@
     
     
     <item>
-      <title>Notions of Time</title>
-      <link>/not_src/not/</link>
+      <title>Pat</title>
+      <link>/pat/overview/</link>
       <pubDate>Thu, 06 Jun 2019 08:16:30 +0100</pubDate>
       
-      <guid>/not_src/not/</guid>
-      <description> Overview More Information Tools and documentation for the current implementation of notions of time:
- Haskell source code.  </description>
+      <guid>/pat/overview/</guid>
+      <description>Overview Pat is a miniature domain specific programming language (DSL) which is heavily influenced by Tidal Cycles. This language was implemented as a means to explore an abstract representation of sequences of musical events for digital musical instruments.
+With this representation, we can then provide a number of applications for music in various digital systems.
+Currently we provide an example that integrates with the Muses Audio Platform, a playground app that will be available for download and exploration soon!</description>
     </item>
     
     <item>
@@ -46,7 +47,7 @@ Benedict R. Gaster, Nathan Renney and Carinna Parraman. (2019) Fun with Interfac
       <pubDate>Fri, 10 May 2019 13:29:41 +0100</pubDate>
       
       <guid>/contributors/</guid>
-      <description>Muses is under active development by Benedict R. Gaster and Nathan Renney, along with contrabutions from Carinna Parraman and others.</description>
+      <description>Muses is under active development by Benedict R. Gaster and Nathan Renney, along with contributions from Carinna Parraman and others.</description>
     </item>
     
     <item>
@@ -66,7 +67,7 @@ Benedict R. Gaster, Nathan Renney and Carinna Parraman. (2019) Fun with Interfac
       <guid>/projects/</guid>
       <description>SVG Interfaces SVG Interfaces is an on going project exploring the design and implementation of custom controller interfaces, bridging the issue of user mapping between action and sound in interactive music systems.
 More information can be found here.
-Notions of Time Music provides a means to explore time by sequencing musical events in a seemingly endless and expressive way. This potential seems to far exceed the ability of digital systems to enable composers and performers to fully explore musical time due to the influence of Western musical traditions on implementation.</description>
+Pat - DSL for exploring Polyrhythm and Polymeter Music provides a means to explore time by sequencing musical events in a seemingly endless and expressive way. Pat is a project that takes inspiration from Tidal Cycles and provides a means to explore advanced rhythmic concepts like polyrhythm and polymeter within the context of designing digital musical instruments.</description>
     </item>
     
   </channel>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Pats on Muses</title>
+    <link>/pat/</link>
+    <description>Recent content in Pats on Muses</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 06 Jun 2019 08:16:30 +0100</lastBuildDate>
+    
+	<atom:link href="/pat/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Pat</title>
+      <link>/pat/overview/</link>
+      <pubDate>Thu, 06 Jun 2019 08:16:30 +0100</pubDate>
+      
+      <guid>/pat/overview/</guid>
+      <description>Overview Pat is a miniature domain specific programming language (DSL) which is heavily influenced by Tidal Cycles. This language was implemented as a means to explore an abstract representation of sequences of musical events for digital musical instruments.
+With this representation, we can then provide a number of applications for music in various digital systems.
+Currently we provide an example that integrates with the Muses Audio Platform, a playground app that will be available for download and exploration soon!</description>
+    </item>
+    
+  </channel>
+</rss>
