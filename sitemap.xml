@@ -3,7 +3,12 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>/pat/examples/</loc>
+    <loc>/pat/listen/</loc>
+    <lastmod>2019-08-09T16:42:08+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/pat/synth/</loc>
     <lastmod>2019-08-09T16:42:08+01:00</lastmod>
   </url>
   
@@ -13,7 +18,7 @@
   </url>
   
   <url>
-    <loc>/svg_interfaces_src/svg_interfaces/</loc>
+    <loc>/svg_interfaces/overview/</loc>
     <lastmod>2019-05-11T08:16:30+01:00</lastmod>
   </url>
   
@@ -60,7 +65,7 @@
   </url>
   
   <url>
-    <loc>/svg_interfaces_src/</loc>
+    <loc>/svg_interfaces/</loc>
     <lastmod>2019-05-11T08:16:30+01:00</lastmod>
     <priority>0</priority>
   </url>

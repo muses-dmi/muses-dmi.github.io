@@ -13,14 +13,25 @@
     
     <item>
       <title>Examples</title>
-      <link>/pat/examples/</link>
+      <link>/pat/listen/</link>
       <pubDate>Fri, 09 Aug 2019 16:42:08 +0100</pubDate>
       
-      <guid>/pat/examples/</guid>
+      <guid>/pat/listen/</guid>
       <description> Audio Examples Perhaps the best way to get familiar with Pat is to take a listen.
 We can listen to an example of Pat directly converted to audio in this example:
  To help get a feel for what is happening, we can listen to this pattern looped, with some percussion used to ground where the sequence synchronizes.
  </description>
+    </item>
+    
+    <item>
+      <title>Examples</title>
+      <link>/pat/synth/</link>
+      <pubDate>Fri, 09 Aug 2019 16:42:08 +0100</pubDate>
+      
+      <guid>/pat/synth/</guid>
+      <description> Muses Audio Platform We expose a method for configuring the step sequencer found in the Muses Audio Platform using Pat.
+In this screen grab of the application, we can see the following pat expression has been used to layout the step sequencer:
+y y y y r y | : | r y y y | : | r y y y o y o  </description>
     </item>
     
     <item>

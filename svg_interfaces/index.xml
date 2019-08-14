@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Svg_interfaces_srcs on Muses</title>
-    <link>/svg_interfaces_src/</link>
-    <description>Recent content in Svg_interfaces_srcs on Muses</description>
+    <title>Svg_interfaces on Muses</title>
+    <link>/svg_interfaces/</link>
+    <description>Recent content in Svg_interfaces on Muses</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 11 May 2019 08:16:30 +0100</lastBuildDate>
     
-	<atom:link href="/svg_interfaces_src/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/svg_interfaces/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>SVG Interfaces</title>
-      <link>/svg_interfaces_src/svg_interfaces/</link>
+      <link>/svg_interfaces/overview/</link>
       <pubDate>Sat, 11 May 2019 08:16:30 +0100</pubDate>
       
-      <guid>/svg_interfaces_src/svg_interfaces/</guid>
+      <guid>/svg_interfaces/overview/</guid>
       <description>Overview SVG Interfaces is an on going project exploring the design and implementation of custom controller interfaces, bridging the issue of user mapping between action and sound in interactive music systems. We have developed a simple framework utilizing functional specifications for musical interfaces and their mappings. The system is based on a subset of Scalable Vector Graphics (SVG); interfaces are described using a simple Haskell based &amp;lsquo;controller DSL&amp;rsquo; or equally using a vector drawing application (i.</description>
     </item>
     
