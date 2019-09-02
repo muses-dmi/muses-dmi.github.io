@@ -47,10 +47,10 @@ Applications - Audio Examples We can listen to an example of Pat directly conver
     
     <item>
       <title>SVG Interfaces</title>
-      <link>/svg_interfaces_src/svg_interfaces/</link>
+      <link>/svg_interfaces/overview/</link>
       <pubDate>Sat, 11 May 2019 08:16:30 +0100</pubDate>
       
-      <guid>/svg_interfaces_src/svg_interfaces/</guid>
+      <guid>/svg_interfaces/overview/</guid>
       <description>Overview SVG Interfaces is an on going project exploring the design and implementation of custom controller interfaces, bridging the issue of user mapping between action and sound in interactive music systems. We have developed a simple framework utilizing functional specifications for musical interfaces and their mappings. The system is based on a subset of Scalable Vector Graphics (SVG); interfaces are described using a simple Haskell based &amp;lsquo;controller DSL&amp;rsquo; or equally using a vector drawing application (i.</description>
     </item>
     
@@ -60,7 +60,8 @@ Applications - Audio Examples We can listen to an example of Pat directly conver
       <pubDate>Fri, 10 May 2019 15:07:52 +0100</pubDate>
       
       <guid>/papers/</guid>
-      <description>Nathan Renney and Benedict R. Gaster. (2019) A look at Rhythm (in Digital Musical Systems). To appear in: AM&amp;rsquo;19 Proceedings of the 14th International Audio Mostly Conference on Augmented and Participatory Sound and Music Experiences.
+      <description>Nathan Renney and Benedict R. Gaster. (2019) Digital Expression and Representation of Rhythm. To appear in: AM&amp;rsquo;19 Proceedings of the 14th International Audio Mostly Conference on Augmented and Participatory Sound and Music Experiences.
+Slides Paper
 Benedict R. Gaster, Nathan Renney and Carinna Parraman. (2019) Fun with Interfaces (SVG Interfaces for Musical Expression). In: FARM&amp;rsquo;19 - Proceedings of the 7th ACM SIGPLAN International Workshop on Functional Art, Music, Modeling, and Design.</description>
     </item>
     
