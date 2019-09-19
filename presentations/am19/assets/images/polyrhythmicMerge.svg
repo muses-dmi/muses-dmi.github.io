@@ -1,0 +1,98 @@
+<svg id="Layer_1" data-name="Layer 1" 
+    xmlns="http://www.w3.org/2000/svg" viewBox="0 250 949.45 794.22">
+    <defs>
+        <style>.cls-1,.cls-7,.cls-9{fill:#d989bc;}.cls-1,.cls-16,.cls-3{stroke:#f5e5c1;}.cls-1,.cls-11,.cls-13,.cls-15,.cls-16,.cls-18,.cls-2,.cls-21,.cls-3{stroke-miterlimit:10;}.cls-2{fill:#dd4921;}.cls-2,.cls-21{stroke:#f3b73b;}.cls-2,.cls-3{stroke-width:2px;}.cls-22,.cls-3,.cls-8{fill:#f3b73b;}.cls-4,.cls-5,.cls-8,.cls-9{font-size:24px;}.cls-10,.cls-17,.cls-4,.cls-6{fill:#333;}.cls-10,.cls-17,.cls-4,.cls-5,.cls-8,.cls-9{font-family:Monaco, Monaco;}.cls-19,.cls-5{fill:#605fa4;}.cls-10{font-size:18.77px;}.cls-11,.cls-13,.cls-15,.cls-18,.cls-21{fill:none;}.cls-11{stroke:gray;}.cls-11,.cls-13,.cls-15{stroke-width:3px;}.cls-12{fill:gray;}.cls-13{stroke:#1a1a1a;}.cls-14{fill:#1a1a1a;}.cls-16{fill:#f5e5c1;}.cls-17{font-size:18px;}.cls-18{stroke:#605fa4;}.cls-18,.cls-21{stroke-width:5px;}.cls-20{opacity:0.5;}</style>
+    </defs>
+    <title>polyrhythmicMerge</title>
+    <circle class="cls-1" cx="437.72" cy="355.78" r="59.68"/>
+    <rect class="cls-2" x="654.48" y="355.42" width="215.02" height="159.17" rx="16.25" ry="16.25"/>
+    <rect class="cls-2" x="1" y="357.42" width="215.02" height="159.17" rx="16.25" ry="16.25"/>
+    <rect class="cls-2" x="189" y="681.16" width="490.65" height="85.95" rx="16.25" ry="16.25"/>
+    <rect class="cls-3" x="15.08" y="413.78" width="37" height="74.07"/>
+    <rect class="cls-3" x="65.51" y="413.78" width="37" height="74.07"/>
+    <rect class="cls-3" x="115.94" y="413.78" width="37" height="74.07"/>
+    <rect class="cls-3" x="166.36" y="413.78" width="37" height="74.07"/>
+    <rect class="cls-3" x="208.67" y="693.76" width="27.94" height="55.87"/>
+    <rect class="cls-3" x="246.74" y="693.76" width="27.94" height="55.87"/>
+    <rect class="cls-3" x="284.82" y="693.76" width="27.94" height="55.87"/>
+    <rect class="cls-3" x="322.89" y="693.76" width="27.94" height="55.87"/>
+    <rect class="cls-3" x="362.83" y="693.76" width="27.94" height="55.87"/>
+    <rect class="cls-3" x="400.91" y="693.76" width="27.94" height="55.87"/>
+    <rect class="cls-3" x="438.98" y="693.76" width="27.94" height="55.87"/>
+    <rect class="cls-3" x="477.05" y="693.76" width="27.94" height="55.87"/>
+    <rect class="cls-3" x="517" y="693.76" width="27.94" height="55.87"/>
+    <rect class="cls-3" x="555.07" y="693.76" width="27.94" height="55.87"/>
+    <rect class="cls-3" x="593.14" y="693.76" width="27.94" height="55.87"/>
+    <rect class="cls-3" x="631.22" y="693.76" width="27.94" height="55.87"/>
+    <rect class="cls-3" x="694.71" y="411.78" width="37" height="74.07"/>
+    <rect class="cls-3" x="743.5" y="411.78" width="37" height="74.07"/>
+    <rect class="cls-3" x="792.28" y="411.78" width="37" height="74.07"/>
+    <text class="cls-4" transform="translate(417.94 364.09)">LCM</text>
+    <text class="cls-4" transform="translate(422.95 472.96)">12</text>
+    <text class="cls-5" transform="translate(127.67 592.82)">iLeft <tspan class="cls-6" x="86.41" y="0">= </tspan>
+        <tspan class="cls-7" x="115.22" y="0">n</tspan>
+        <tspan class="cls-6" x="129.62" y="0" xml:space="preserve"> / 4</tspan>
+    </text>
+    <text class="cls-8" transform="translate(472.05 592.82)">iRight <tspan class="cls-6" x="100.82" y="0">= </tspan>
+        <tspan class="cls-7" x="129.62" y="0">n</tspan>
+        <tspan class="cls-6" x="144.02" y="0" xml:space="preserve"> / 3</tspan>
+    </text>
+    <text class="cls-9" transform="translate(371.05 472.96)">n =</text>
+    <text class="cls-4" transform="translate(18.08 443)">bd</text>
+    <text class="cls-4" transform="translate(699.04 439)">hh</text>
+    <text class="cls-4" transform="translate(796.53 438.99)">sn</text>
+    <text class="cls-10" transform="translate(210.67 713.86)">bd<tspan x="0" y="22.52">hh</tspan>
+    </text>
+    <text class="cls-4" transform="translate(118.94 441)">bd</text>
+    <text class="cls-10" transform="translate(442.18 713.86)">bd</text>
+    <text class="cls-10" transform="translate(519.48 713.86)">sn</text>
+    <polyline class="cls-11" points="463.72 462.68 607.11 462.68 605.64 549.49"/>
+    <polygon class="cls-12" points="605.4 562.55 598.39 544.52 605.64 548.9 613.03 544.77 605.4 562.55"/>
+    <path class="cls-6" d="M486.23,376.5" transform="translate(-42.28 275.18)"/>
+    <line class="cls-13" x1="437.22" y1="415.18" x2="437.22" y2="432.18"/>
+    <polygon class="cls-14" points="437.22 445.18 429.9 427.27 437.22 431.52 444.54 427.27 437.22 445.18"/>
+    <line class="cls-13" x1="437.22" y1="480.18" x2="437.22" y2="596.18"/>
+    <polygon class="cls-14" points="437.22 608.71 429.9 590.81 437.22 595.05 444.54 590.81 437.22 608.71"/>
+    <line class="cls-13" x1="313.22" y1="357.18" x2="313.22" y2="542.18"/>
+    <polygon class="cls-14" points="313.22 554.8 305.9 536.89 313.22 541.14 320.54 536.89 313.22 554.8"/>
+    <line class="cls-13" x1="263.72" y1="347.68" x2="299.72" y2="347.68"/>
+    <line class="cls-13" x1="327.72" y1="347.68" x2="364.72" y2="347.68"/>
+    <polygon class="cls-14" points="377.22 347.39 359.31 354.7 363.56 347.39 359.31 340.07 377.22 347.39"/>
+    <line class="cls-13" x1="548.72" y1="349.68" x2="508.72" y2="349.68"/>
+    <polygon class="cls-14" points="496.22 349.39 514.13 342.07 509.88 349.39 514.13 356.7 496.22 349.39"/>
+    <line class="cls-13" x1="610.72" y1="349.68" x2="572.72" y2="349.68"/>
+    <text x="-42.28" y="275.18"></text>
+    <circle class="cls-16" cx="225.68" cy="346.93" r="38.97"/>
+    <text class="cls-17" transform="translate(191.59 351.25)">Length</text>
+    <text class="cls-17" transform="translate(307.83 351.25)">4</text>
+    <text class="cls-17" transform="translate(554.54 355.25)">3</text>
+    <circle class="cls-16" cx="649.12" cy="344.6" r="38.97"/>
+    <text class="cls-17" transform="translate(615.03 348.92)">Length</text>
+    <circle class="cls-16" cx="438.98" cy="647.68" r="38.97"/>
+    <text class="cls-17" transform="translate(405.89 644.01)">Length</text>
+    <text class="cls-9" transform="translate(414.87 665.73)">= n</text>
+    <polyline class="cls-11" points="358.72 460.68 236.22 460.68 236.22 542.18"/>
+    <polygon class="cls-12" points="236.6 554.8 229.29 536.89 236.6 541.14 243.92 536.89 236.6 554.8"/>
+    <polyline class="cls-13" points="559.22 364.18 559.22 535.68 670.22 535.68 670.22 550.18"/>
+    <polygon class="cls-14" points="670.22 563.33 662.9 545.42 670.22 549.67 677.54 545.42 670.22 563.33"/>
+    <path class="cls-18" d="M264.91,414.24s31.6-31.58,66.18-9" transform="translate(-42.28 275.18)"/>
+    <polygon class="cls-19" points="299.72 689.42 279.09 683.38 287.85 679.96 289.22 670.66 299.72 689.42"/>
+    <g class="cls-20">
+        <path class="cls-18" d="M374.91,414.24s31.6-31.58,66.18-9" transform="translate(-42.28 275.18)"/>
+        <polygon class="cls-19" points="409.72 689.42 389.09 683.38 397.85 679.96 399.22 670.66 409.72 689.42"/>
+    </g>
+    <path class="cls-18" d="M494.91,414.24s31.6-31.58,66.18-9" transform="translate(-42.28 275.18)"/>
+    <polygon class="cls-19" points="529.72 689.42 509.09 683.38 517.85 679.96 519.22 670.66 529.72 689.42"/>
+    <g class="cls-20">
+        <path class="cls-18" d="M610.91,414.24s31.6-31.58,66.18-9" transform="translate(-42.28 275.18)"/>
+        <polygon class="cls-19" points="645.72 689.42 625.09 683.38 633.85 679.96 635.22 670.66 645.72 689.42"/>
+    </g>
+    <path class="cls-21" d="M264.91,486.13s51.91,48.08,103.58,9.28" transform="translate(-42.28 275.18)"/>
+    <polygon class="cls-22" points="336.86 761.31 326.98 780.4 325.3 771.15 316.44 768.02 336.86 761.31"/>
+    <g class="cls-20">
+        <path class="cls-21" d="M419.91,486.13s51.91,48.08,103.58,9.28" transform="translate(-42.28 275.18)"/>
+        <polygon class="cls-22" points="491.86 761.31 481.98 780.4 480.3 771.15 471.44 768.02 491.86 761.31"/>
+    </g>
+    <path class="cls-21" d="M567.91,492.13s51.91,48.08,103.58,9.28" transform="translate(-42.28 275.18)"/>
+    <polygon class="cls-22" points="639.86 767.31 629.98 786.4 628.3 777.15 619.44 774.02 639.86 767.31"/>
+</svg>
