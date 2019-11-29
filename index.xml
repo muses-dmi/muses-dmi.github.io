@@ -12,6 +12,24 @@
     
     
     <item>
+      <title>PM_GPUs</title>
+      <link>/pm_gpus/overview/</link>
+      <pubDate>Wed, 20 Nov 2019 08:16:30 +0100</pubDate>
+      
+      <guid>/pm_gpus/overview/</guid>
+      <description>Numerical Methods for Physical Modelling and GPUs Direct numerical methods which have long been studied and applied in physics and mathematics are powerful schemes used to simulate physical phenomena. By simulating the physics of sound wave propagation through instruments and environments, new synthesizers and effects can be accuratly modelled. Physical modelling was for a long time impracticle to compute for most applications. With the level of computational power available today, they are becoming more viable.</description>
+    </item>
+    
+    <item>
+      <title>gpu_accelerated_physical_model_for_real_time_drumhead_synthesis</title>
+      <link>/pm_gpus/gpu_accelerated_physical_model_for_real_time_drumhead_synthesis/</link>
+      <pubDate>Wed, 20 Nov 2019 08:16:30 +0100</pubDate>
+      
+      <guid>/pm_gpus/gpu_accelerated_physical_model_for_real_time_drumhead_synthesis/</guid>
+      <description>GPU-Accelerated Physical Model For Real-time Drumhead Synthesis This post covers the highlights of the code base used to present the GPU-accelerated drumhead physical model program. This application was demonstrated at the Audio Developers Conference 2019. The application presents a model of a 2D drumhead physical model based on direct numerical methods from mathematical simulations. Specifically, the model uses finite differencing methods based within the time-domain. These methods are known as finite-difference time-domain(FDTD) simulations.</description>
+    </item>
+    
+    <item>
       <title>Examples</title>
       <link>/pat/listen/</link>
       <pubDate>Fri, 09 Aug 2019 16:42:08 +0100</pubDate>
@@ -60,10 +78,11 @@ Applications - Audio Examples We can listen to an example of Pat directly conver
       <pubDate>Fri, 10 May 2019 15:07:52 +0100</pubDate>
       
       <guid>/papers/</guid>
-      <description>Nathan Renney and Benedict R. Gaster. (2019) Digital Expression and Representation of Rhythm. To appear in: AM&amp;rsquo;19 Proceedings of the 14th International Audio Mostly Conference on Augmented and Participatory Sound and Music Experiences.
+      <description>Benedict R. Gaster and Carinna Parraman. (2019) Printing the Muses: Reimaging digital musical instruments through 2.5D printing. In: Proceedings of the IS&amp;amp;T Printing for Fabrication, 2019.
+Paper Poster
+Nathan Renney and Benedict R. Gaster. (2019) Digital Expression and Representation of Rhythm. AM&amp;rsquo;19: Proceedings of the 14th International Audio Mostly Conference on Augmented and Participatory Sound and Music Experiences.
 Paper
-Benedict R. Gaster, Nathan Renney and Carinna Parraman. (2019) Fun with Interfaces (SVG Interfaces for Musical Expression). In: FARM&amp;rsquo;19 - Proceedings of the 7th ACM SIGPLAN International Workshop on Functional Art, Music, Modeling, and Design.
-Slides Paper</description>
+Benedict R. Gaster, Nathan Renney and Carinna Parraman. (2019) Fun with Interfaces (SVG Interfaces for Musical Expression).</description>
     </item>
     
     <item>

@@ -3,6 +3,16 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>/pm_gpus/overview/</loc>
+    <lastmod>2019-11-20T08:16:30+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/pm_gpus/gpu_accelerated_physical_model_for_real_time_drumhead_synthesis/</loc>
+    <lastmod>2019-11-20T08:16:30+01:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/pat/listen/</loc>
     <lastmod>2019-08-09T16:42:08+01:00</lastmod>
   </url>
@@ -49,6 +59,12 @@
   
   <url>
     <loc>/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/pm_gpus/</loc>
+    <lastmod>2019-11-20T08:16:30+01:00</lastmod>
     <priority>0</priority>
   </url>
   
