@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Benchmarkings on Muses</title>
+    <link>/benchmarking/</link>
+    <description>Recent content in Benchmarkings on Muses</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 20 Apr 2020 08:16:30 +0100</lastBuildDate>
+    
+	<atom:link href="/benchmarking/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>benchmarking_database_there_and_back_again</title>
+      <link>/benchmarking/benchmarking_database_there_and_back_again/</link>
+      <pubDate>Mon, 20 Apr 2020 08:16:30 +0100</pubDate>
+      
+      <guid>/benchmarking/benchmarking_database_there_and_back_again/</guid>
+      <description>Placeholder</description>
+    </item>
+    
+    <item>
+      <title>benchmarking</title>
+      <link>/benchmarking/overview/</link>
+      <pubDate>Wed, 20 Nov 2019 08:16:30 +0100</pubDate>
+      
+      <guid>/benchmarking/overview/</guid>
+      <description>Benchmarking For justification purposes, performance profiling and benchmarking suites have been developed around the design and research of accelerating DSP processes like audio synthesis. Full databases of results and discussions are collected in this project.
+Benchmarking Database - There and Back Again:The Practicality of GPU Accelerated Digital Audio For the paper published in NIME 2020, a database of benchmarking results were collected and discussed. All the results could not be covered in the limits of the conference paper, so the database of results can be found here along with further discussion.</description>
+    </item>
+    
+  </channel>
+</rss>

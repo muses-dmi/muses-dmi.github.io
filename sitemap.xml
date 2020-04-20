@@ -3,7 +3,17 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>/benchmarking/benchmarking_database_there_and_back_again/</loc>
+    <lastmod>2020-04-20T08:16:30+01:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/pm_gpus/overview/</loc>
+    <lastmod>2019-11-20T08:16:30+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/benchmarking/overview/</loc>
     <lastmod>2019-11-20T08:16:30+01:00</lastmod>
   </url>
   
@@ -55,6 +65,12 @@
   <url>
     <loc>/projects/</loc>
     <lastmod>2019-05-10T13:29:41+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/benchmarking/</loc>
+    <lastmod>2020-04-20T08:16:30+01:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>

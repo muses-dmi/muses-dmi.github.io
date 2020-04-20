@@ -12,12 +12,31 @@
     
     
     <item>
+      <title>benchmarking_database_there_and_back_again</title>
+      <link>/benchmarking/benchmarking_database_there_and_back_again/</link>
+      <pubDate>Mon, 20 Apr 2020 08:16:30 +0100</pubDate>
+      
+      <guid>/benchmarking/benchmarking_database_there_and_back_again/</guid>
+      <description>Placeholder</description>
+    </item>
+    
+    <item>
       <title>PM_GPUs</title>
       <link>/pm_gpus/overview/</link>
       <pubDate>Wed, 20 Nov 2019 08:16:30 +0100</pubDate>
       
       <guid>/pm_gpus/overview/</guid>
       <description>Numerical Methods for Physical Modelling and GPUs Direct numerical methods which have long been studied and applied in physics and mathematics are powerful schemes used to simulate physical phenomena. By simulating the physics of sound wave propagation through instruments and environments, new synthesizers and effects can be accuratly modelled. Physical modelling was for a long time impracticle to compute for most applications. With the level of computational power available today, they are becoming more viable.</description>
+    </item>
+    
+    <item>
+      <title>benchmarking</title>
+      <link>/benchmarking/overview/</link>
+      <pubDate>Wed, 20 Nov 2019 08:16:30 +0100</pubDate>
+      
+      <guid>/benchmarking/overview/</guid>
+      <description>Benchmarking For justification purposes, performance profiling and benchmarking suites have been developed around the design and research of accelerating DSP processes like audio synthesis. Full databases of results and discussions are collected in this project.
+Benchmarking Database - There and Back Again:The Practicality of GPU Accelerated Digital Audio For the paper published in NIME 2020, a database of benchmarking results were collected and discussed. All the results could not be covered in the limits of the conference paper, so the database of results can be found here along with further discussion.</description>
     </item>
     
     <item>
