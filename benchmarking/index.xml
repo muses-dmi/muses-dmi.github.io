@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Benchmarkings on Muses</title>
@@ -17,7 +17,9 @@
       <pubDate>Mon, 20 Apr 2020 08:16:30 +0100</pubDate>
       
       <guid>/benchmarking/benchmarking_database_there_and_back_again/</guid>
-      <description>Placeholder</description>
+      <description>Benchmarking Methodology (Explain method.)
+Warmup run.
+Being one of the most influencial controllable parameters, the buffer size is scaled in the tests and the performance measured. The buffer size was scaled by powers of two, starting at a buffer size of one, up to a size of 32768. This is an exponential increase which does avoid detailed measurements at larger buffer sizes as the steps are bigger. However, this was chosen as it gives fine detailed measurmeents at smaller buffer sizes which are of particular interest to people working in real-time digital audio, whilst also covering the larger buffer sizes to demonstrate real-time issues and offline capabilities.</description>
     </item>
     
     <item>

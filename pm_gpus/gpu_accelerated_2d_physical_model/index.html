@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+    <title>gpu_accelerated_2d_physical_model :: Muses — Digital Musical Instruments</title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="description" content="GPU-Accelerated Physical Model For Real-time Drumhead Synthesis This post covers the highlights of the code base used to present the GPU-accelerated drumhead physical model program. This application was demonstrated at the Audio Developers Conference 2019 and the conference of New Instruments for Musical Expression (NIME 2020). The application presents a model of a 2D drumhead physical model based on direct numerical methods from mathematical simulations. Specifically, the model uses finite differencing methods based within the time-domain."/>
+<meta name="keywords" content=""/>
+<meta name="robots" content="noodp"/>
+<link rel="canonical" href="/pm_gpus/gpu_accelerated_2d_physical_model/" />
+
+
+<link rel="stylesheet" href="/assets/style.css">
+
+  <link rel="stylesheet" href="/assets/muses.css">
+
+
+
+<link rel="stylesheet" href="/style.css">
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/img/apple-touch-icon-144-precomposed.png">
+
+<link rel="shortcut icon" href="/img/favicon/muses.png">
+
+
+
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="gpu_accelerated_2d_physical_model :: Muses — Digital Musical Instruments" />
+<meta name="twitter:description" content="GPU-Accelerated Physical Model For Real-time Drumhead Synthesis This post covers the highlights of the code base used to present the GPU-accelerated drumhead physical model program. This application was demonstrated at the Audio Developers Conference 2019 and the conference of New Instruments for Musical Expression (NIME 2020). The application presents a model of a 2D drumhead physical model based on direct numerical methods from mathematical simulations. Specifically, the model uses finite differencing methods based within the time-domain." />
+<meta name="twitter:site" content="/" />
+<meta name="twitter:creator" content="" />
+<meta name="twitter:image" content="">
+
+
+<meta property="og:locale" content="en" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="gpu_accelerated_2d_physical_model :: Muses — Digital Musical Instruments">
+<meta property="og:description" content="GPU-Accelerated Physical Model For Real-time Drumhead Synthesis This post covers the highlights of the code base used to present the GPU-accelerated drumhead physical model program. This application was demonstrated at the Audio Developers Conference 2019 and the conference of New Instruments for Musical Expression (NIME 2020). The application presents a model of a 2D drumhead physical model based on direct numerical methods from mathematical simulations. Specifically, the model uses finite differencing methods based within the time-domain." />
+<meta property="og:url" content="/pm_gpus/gpu_accelerated_2d_physical_model/" />
+<meta property="og:site_name" content="gpu_accelerated_2d_physical_model" />
+<meta property="og:image" content="">
+<meta property="og:image:width" content="2048">
+<meta property="og:image:height" content="1024">
+
+<meta property="article:published_time" content="2019-11-20 08:16:30 &#43;0100 &#43;0100" />
+
+
+
+
+
+
+
+
+
+
+
+</head>
+<body class="">
+
+
+<div class="container center">
+
+  <header class="header">
+  <div class="header__inner">
+    <div class="header__logo">
+      <a href="/">
+  <div class="logo">
+    Mus
+  </div>
+</a>
+
+    </div>
+    <div class="menu-trigger">menu</div>
+  </div>
+  
+    <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="/contributors">contributors</a></li>
+        
+      
+        
+          <li><a href="/papers">papers</a></li>
+        
+      
+        
+          <li><a href="/projects">projects</a></li>
+        
+      
+        
+          <li><a href="https://github.com/muses-dmi">the code</a></li>
+        
+      
+      
+    
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/contributors">contributors</a></li>
+      
+    
+      
+        <li><a href="/papers">papers</a></li>
+      
+    
+      
+        <li><a href="/projects">projects</a></li>
+      
+    
+      
+        <li><a href="https://github.com/muses-dmi">the code</a></li>
+      
+    
+  </ul>
+</nav>
+
+  
+</header>
+
+
+  <div class="content">
+    
+<div class="post">
+  <h1 class="post-title">
+    <a href="/pm_gpus/gpu_accelerated_2d_physical_model/">gpu_accelerated_2d_physical_model</a></h1>
+  <div class="post-meta">
+    <span class="post-date">
+      2019-11-20
+    </span>
+    
+  </div>
+
+  
+
+  
+
+  <div class="post-content">
+    <h1 id="gpu-accelerated-physical-model-for-real-time-drumhead-synthesis">GPU-Accelerated Physical Model For Real-time Drumhead Synthesis</h1>
+<p>This post covers the highlights of the code base used to present the GPU-accelerated drumhead physical model program. This application was demonstrated at the <a href="https://juce.com/adc">Audio Developers Conference 2019</a> and the conference of New Instruments for Musical Expression (<a href="https://nime2020.bcu.ac.uk/">NIME 2020</a>). The application presents a model of a 2D drumhead physical model based on direct numerical methods from mathematical simulations. Specifically, the model uses finite differencing methods based within the time-domain. These methods are known as finite-difference time-domain(FDTD) simulations. Therefore, the GPU-accelerated drumhead physical model will be referred to as such in the rest of the post.</p>
+<p><!-- raw HTML omitted --></p>
+<h2 id="fdtd-synthesizer">FDTD synthesizer</h2>
+<p>The focus of this post is on the whole system and its interacting components. Meaning, we cover how the FDTD synthesizer is included in a JUCE playback &amp; GUI application, along with how a physical device like the Sensel Morph can be added as a way to interact with the synthesizer. This post will not cover the detailed inner workings of the FDTD synthesizer. Instead, the FDTD synthesizer will be covered in another dedicated post. To cover it briefly, the FDTD synthesizer is based on a 2D cartesian grid. The simple 2D wave equation is applied to the grid in a discrete, finite-difference scheme. The equation exposes three coefficients as potential parameters: Propagation, damping and boundary gain. The propagation coefficient determines the speed of wave propagation through the medium, the damping coefficient determines the amount of energy absorbed into the medium as it transfers through it and finally, the boundary gain is the amount the wave is reflected back into the model at the edges. The implementation of the FDTD synthesizer in this application uses OpenGL, a graphics rendering API to process the FDTD simulation in real-time. We have developed other implementations, which can be found <a href="https://gitlab.uwe.ac.uk/Physical-Modeling/iwocl-fdtd-benchmarking">here</a>.</p>
+<h3 id="gpu-acceleration">GPU Acceleration</h3>
+<p>The novelty to this demonstration is that it can achieve a real-time(Or at least near real-time) performance by optimizing in C++ and offloading the processing to the Graphics Processing Unit(GPU). GPUs are common place in almost all computer systems now. In recent years, they have become more than just an accelerator for graphics specifically, but also for general computation. GPUs process in a massively parallel way that is best suited when there is a collection of similar data that requires the same set of instructions to be applied to them. A most simplistic example, think of a large array where every number needs to be doubled. Instead of a single CPU processor visiting each and multiplying by two, using a GPU with possibly a few hundred streaming processors that execute in parallel, multiplying by two can be applied to hundreds of the elements at once. There is much more to cover when considering the GPU architecture, but this will be covered another time.</p>
+<h2 id="opengl_fdtd-interface">OpenGL_FDTD Interface</h2>
+<p>To use the FDTD synthesizer, you only need to understand how to use a handful of simple public functions in the OpenGL_FDTD class.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c">OpenGL_FDTD(OpenGL_FDTD_Arguments args);
+<span style="color:#66d9ef">bool</span> <span style="color:#a6e22e">fillBuffer</span>(<span style="color:#66d9ef">unsigned</span> <span style="color:#66d9ef">long</span> frames, <span style="color:#66d9ef">void</span><span style="color:#f92672">*</span> inbuf, <span style="color:#66d9ef">void</span><span style="color:#f92672">*</span> outbuf);
+</code></pre></div><p>The &ldquo;fillBuffer()&rdquo; function should follow a familiar format to audio developers. Once the FDTD synthesizer has been initialized, it can be called to fill a buffer with new audio samples. By passing the number of samples to compute in the first argument, a buffer of input samples to &lsquo;excite&rsquo; the model as the second and an output buffer where the generated samples will be written to. The initialization is a more verbose setup than might be expected. A single &lsquo;OpenGL_FDTD_Arguments&rsquo; struct can be passed, which contains a collection of configuration information. See the struct below to understand what needs to be explicitly set.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#66d9ef">struct</span> OpenGL_FDTD_Arguments
+{
+    <span style="color:#66d9ef">bool</span> isDebug;                        <span style="color:#75715e">//Sets if debug information is reported to output.
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">bool</span> isBenchmark;                    <span style="color:#75715e">//Sets if benchmarking performance measurements are recorded.
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">bool</span> isVisualize;                    <span style="color:#75715e">//Sets if the FDTD model is visualized in an OpenGL context.
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">bool</span> isLinearPixelInterpolation;    <span style="color:#75715e">//Sets if the pixels in the OpenGL viualization are linearly interpolated, or just true value calculated at the position.
+</span><span style="color:#75715e"></span>    FDTD_Shape shape;                    <span style="color:#75715e">//Sets the shape of the boundary for the default boundary point.
+</span><span style="color:#75715e"></span>    uint32_t modelWidth;                <span style="color:#75715e">//Sets the size of the model in x dimension.
+</span><span style="color:#75715e"></span>    uint32_t modelHeight;                <span style="color:#75715e">//Sets the size of the model in y dimension.
+</span><span style="color:#75715e"></span>    uint32_t bufferSize;                <span style="color:#75715e">//Sets the buffersize, how many samples to generate per call to &#34;fillBuffer(...)&#34;.
+</span><span style="color:#75715e"></span>    uint32_t listenerPosition[<span style="color:#ae81ff">2</span>];        <span style="color:#75715e">//Sets the location in the 2D model of the listener positions (Where in the model the audio samples are recorded from)
+</span><span style="color:#75715e"></span>    uint32_t excitationPosition[<span style="color:#ae81ff">2</span>];        <span style="color:#75715e">//Sets the location in the 2D model of the excitaiton position. (Where samples are input into the model)
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">float</span> propagationFactor;            <span style="color:#75715e">//Sets the propgation coeffcient, determine wave speed.
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">float</span> dampingCoefficient;            <span style="color:#75715e">//Sets damping coefficient, determines wave absorbtion.
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">float</span> boundaryGain;                    <span style="color:#75715e">//Sets degree which waves are reflected on boundaries.
+</span><span style="color:#75715e"></span>    std<span style="color:#f92672">::</span>string fboVsSource;            <span style="color:#75715e">//Identifies paths to the FDTD processing vertex and fragment shaders.
+</span><span style="color:#75715e"></span>    std<span style="color:#f92672">::</span>string fboFsSource;
+    std<span style="color:#f92672">::</span>string renderVsSource;            <span style="color:#75715e">//Identifies paths to the FDTD rendering vertex and fragment shaders.
+</span><span style="color:#75715e"></span>    std<span style="color:#f92672">::</span>string renderFsSource;
+};
+</code></pre></div><p>In the current implementation, making changes to the FDTD synthesizer configuration requires recreating the object by calling its constructor. In the future, many of these parameters should be modifiable and take effect without the model needing to be recreated.</p>
+<h2 id="audio-playback-and-gui-environment">Audio Playback and GUI Environment</h2>
+<p>Originally, Portaudio was used in development for the real-time playback functionality. However, there seemed to be problems using portaudio for this application, specifically for supporting the real-time processing of the FDTD model. Instead, this application has been developed within the <a href="https://shop.juce.com/get-juce">JUCE</a> environment. JUCE provides real-time playback functionality in the form of defining virtual callback functions which are called internally to obtain audio samples to play through an available audio device. The use of the FDTD synthesizer class in a JUCE application demonstrates the easy integration of the FDTD synthesizer into new projects.</p>
+<h3 id="initializing-the-fdtd-model">Initializing the FDTD Model</h3>
+<p>The FDTD model is initialized when the parameters in the GUI are changed or one of the buttons to recreate a preset configuration is pressed. Therefore, the FDTD model is initialized on GUI callback events.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#66d9ef">void</span> MainComponent<span style="color:#f92672">::</span>buttonClicked(Button<span style="color:#f92672">*</span> btn);
+<span style="color:#66d9ef">void</span> MainComponent<span style="color:#f92672">::</span>sliderDragEnded(Slider<span style="color:#f92672">*</span> sld);
+</code></pre></div><p>These two JUCE virtual functions are defined to handle button clicks and slider changes. When a parameter is changed for the model, the parameter that is changed is checked and the FDTD synthesizer constructor is called to initialize the new configuration. An example of the propagation factor slider change is shown below.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#66d9ef">if</span> (sld <span style="color:#f92672">==</span> <span style="color:#f92672">&amp;</span>sldPropagation)                                    <span style="color:#75715e">//If slider changed is propagation factor.
+</span><span style="color:#75715e"></span>{
+    glArgs.propagationFactor <span style="color:#f92672">=</span> sldPropagation.getValue();    <span style="color:#75715e">//Get the new value for propagation factor.
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">if</span> (glFDTDAlive_)                                        <span style="color:#75715e">//If the FDTD model already exits, delete it.
+</span><span style="color:#75715e"></span>    {
+        glFDTD<span style="color:#f92672">-&gt;</span>closeWindow();
+        delete(glFDTD);
+    }
+    glFDTD <span style="color:#f92672">=</span> new OpenGL_FDTD(glArgs);                        <span style="color:#75715e">//Create the new FDTD model with new propagation factor.
+</span><span style="color:#75715e"></span>
+    reinitSignal.set(<span style="color:#ae81ff">0</span>);
+    glFDTDAlive_ <span style="color:#f92672">=</span> true;                                    <span style="color:#75715e">//Indicates that the FDTD model now exists in the program.
+</span><span style="color:#75715e"></span>}
+</code></pre></div><h3 id="audio-callback-function">Audio Callback Function</h3>
+<p>JUCE provides the following virtual function to be defined for real-time audio playback.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#66d9ef">void</span> MainComponent<span style="color:#f92672">::</span>getNextAudioBlock(<span style="color:#66d9ef">const</span> AudioSourceChannelInfo<span style="color:#f92672">&amp;</span> outputBuffer)
+</code></pre></div><p>Inside this function, the programmer is expected to obtain or generate audio samples which must then be added to the buffer. This buffer will then be played through the chosen audio device by JUCE. This is a callback function that is called at a rate required by JUCE
+to sustain the constant audio rate set. In this application, the audio samples will be generated from the FDTD model executing on the GPU.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#66d9ef">float</span><span style="color:#f92672">*</span> inputExcitation <span style="color:#f92672">=</span> new <span style="color:#66d9ef">float</span>[outputBuffer.numSamples];
+<span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> j <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; j <span style="color:#f92672">!=</span> outputBuffer.numSamples; <span style="color:#f92672">++</span>j)
+{
+    inputExcitation[j] <span style="color:#f92672">=</span> sineExciter_.getNextSample();
+    <span style="color:#66d9ef">if</span> (wavetableExciter_.isExcitation())
+        inputExcitation[j] <span style="color:#f92672">=</span> wavetableExciter_.getNextSample();
+    <span style="color:#66d9ef">else</span>
+        inputExcitation[j] <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+    <span style="color:#75715e">//inputExcitation[j] = senselPressure.get();
+</span><span style="color:#75715e"></span>}
+</code></pre></div><p>Every time a buffer of audio is to be generated, an equally sized buffer of input audio samples needs to be collected in a buffer. This is because the FDTD model should have an input sample inserted into the model as an &ldquo;excitation&rdquo; for every time-step processed.
+In the current implementation, a wavetable is used as input into the model at a position determined by the Sensel Morph contact. In the future, the input should use pressure from the contact as input to add velocity to excitation.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#66d9ef">float</span><span style="color:#f92672">*</span> samples <span style="color:#f92672">=</span> new <span style="color:#66d9ef">float</span>[outputBuffer.numSamples];
+glFDTD<span style="color:#f92672">-&gt;</span>setBufferSize(outputBuffer.numSamples);
+glFDTD<span style="color:#f92672">-&gt;</span>fillBuffer(outputBuffer.numSamples, inputExcitation, samples);
+</code></pre></div><p>To generate the samples needed from the FDTD model, the &ldquo;fillBuffer()&rdquo; function is called. Passing it the number of samples to generate, a buffer of input audio samples that will &ldquo;excite&rdquo; the model and the output buffer which the generated samples will be written
+to.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#66d9ef">float</span><span style="color:#f92672">*</span> leftBuffer <span style="color:#f92672">=</span> outputBuffer.buffer<span style="color:#f92672">-&gt;</span>getWritePointer(<span style="color:#ae81ff">0</span>, outputBuffer.startSample);        <span style="color:#75715e">//Get pointers to the left and right buffers JUCE plays back in real-time.
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">float</span><span style="color:#f92672">*</span> rightBuffer <span style="color:#f92672">=</span> outputBuffer.buffer<span style="color:#f92672">-&gt;</span>getWritePointer(<span style="color:#ae81ff">1</span>, outputBuffer.startSample);
+memcpy((<span style="color:#66d9ef">void</span><span style="color:#f92672">*</span>)leftBuffer, (<span style="color:#66d9ef">void</span><span style="color:#f92672">*</span>)samples, outputBuffer.numSamples<span style="color:#f92672">*</span><span style="color:#66d9ef">sizeof</span>(<span style="color:#66d9ef">float</span>));            <span style="color:#75715e">//Copy generated samples into left and right JUCE buffers.
+</span><span style="color:#75715e"></span>memcpy((<span style="color:#66d9ef">void</span><span style="color:#f92672">*</span>)rightBuffer, (<span style="color:#66d9ef">void</span><span style="color:#f92672">*</span>)samples, outputBuffer.numSamples <span style="color:#f92672">*</span> <span style="color:#66d9ef">sizeof</span>(<span style="color:#66d9ef">float</span>));
+</code></pre></div><p>Once the samples buffer is filled with new, synthesized values from the FDTD model, the buffer&rsquo;s contents are copied into the left and right JUCE buffers. The samples in these buffers will now be played back through the chosen audio device! Before
+copying the samples, there is the opportunity to apply further processing to the samples.</p>
+<p>For more information and examples on JUCE&rsquo;s audio functionality, check <a href="https://docs.juce.com/master/tutorial_processing_audio_input.html">here</a>.</p>
+<h2 id="sensel-morph-interface">Sensel Morph Interface</h2>
+<p><a href="https://sensel.com/">Sensel</a> is a company that offers pressure grid touch sensors. Here, a Sensel Morph is used as a way of exciting the FDTD synthesizer, acting as a drumhead which the performer can touch or strike. The Sensel provides the points of contact and the pressure at each point of contact. Currently, the implementation uses the coordinates of the points of contact on the Sensel to set the position where excitation samples will be input into the FDTD model.</p>
+<h3 id="initializing-the-sensel-morph">Initializing the Sensel Morph</h3>
+<p>The Sensel Morph is initialized once inside JUCE&rsquo;s prepareToPlay virtual function.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#66d9ef">void</span> MainComponent<span style="color:#f92672">::</span>prepareToPlay(<span style="color:#66d9ef">int</span> samplesPerBlockExpected, <span style="color:#66d9ef">double</span> sampleRate)
+{
+    <span style="color:#75715e">//Get connected Sensel Device//
+</span><span style="color:#75715e"></span>    senselGetDeviceList(<span style="color:#f92672">&amp;</span>list);
+    <span style="color:#66d9ef">if</span> (list.num_devices <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>)
+        senselWarning.setVisible(true);
+    <span style="color:#66d9ef">else</span>
+        senselWarning.setVisible(false);
+
+    <span style="color:#75715e">//Open a Sensel device by id in the SenselDeviceList and get info//
+</span><span style="color:#75715e"></span>    senselOpenDeviceByID(<span style="color:#f92672">&amp;</span>handle, list.devices[<span style="color:#ae81ff">0</span>].idx);
+    senselGetSensorInfo(handle, <span style="color:#f92672">&amp;</span>sensor_info);
+
+    <span style="color:#75715e">//Set and allocate the frame content//
+</span><span style="color:#75715e"></span>    senselSetFrameContent(handle, FRAME_CONTENT_CONTACTS_MASK);
+    senselAllocateFrameData(handle, <span style="color:#f92672">&amp;</span>frame);
+
+    <span style="color:#75715e">//Configure Sensel scan detail, framerate and contact minimum force to detect//
+</span><span style="color:#75715e"></span>    senselSetScanDetail(handle, SCAN_DETAIL_LOW);
+    senselSetMaxFrameRate(handle, <span style="color:#ae81ff">500</span>);
+    senselSetContactsMinForce(handle, <span style="color:#ae81ff">10</span>);
+
+    <span style="color:#75715e">//Start scanning the Sensel device for changes//
+</span><span style="color:#75715e"></span>    senselStartScanning(handle);
+
+    <span style="color:#75715e">//Start the JUCE hiResTimerCallback timer - This will be called once every millisecond to poll Sensel for contacts//
+</span><span style="color:#75715e"></span>    startTimer(<span style="color:#ae81ff">1</span>);
+}
+</code></pre></div><h3 id="collecting-contact-and-pressure">Collecting contact and pressure</h3>
+<p>In this application, the contact and pressure information is collected from the sensel by polling it for available information on a timer. JUCE provides a high-resolution timer as shown below.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#66d9ef">void</span> MainComponent<span style="color:#f92672">::</span>hiResTimerCallback()
+</code></pre></div><p>This timer is set to be called once a millisecond. This results in the Sensel Morph being polled for available data once a millisecond. This time interval could be tuned for better performance, but in the current implementation was satisfactory.</p>
+<h2 id="synchronization">Synchronization</h2>
+<p>The application runs multiple-threads to achieve real-time performance. This involves a consistent simulation of the FDTD model executing on the GPU. To keep running, this requires careful management by the CPU. Along with this, the Sensel Morph is polled for new contact and the GUI interface has event callbacks when parameters are configured. When the FDTD synthesizer parameters are modified and must be recreated, the current simulation running on the GPU must finish processing. For stability, these two regions of code must, therefore, be mutually exclusive. In this implementation, this is achieved using mutex&rsquo;s</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#66d9ef">void</span> MainComponent<span style="color:#f92672">::</span>getNextAudioBlock(<span style="color:#66d9ef">const</span> AudioSourceChannelInfo<span style="color:#f92672">&amp;</span> outputBuffer)
+{
+	mutexFDTD.lock();
+
+	<span style="color:#75715e">//FDTD synthesizer generates a buffer of samples...
+</span><span style="color:#75715e"></span>
+	mutexFDTD.unlock();
+}
+
+<span style="color:#66d9ef">void</span> MainComponent<span style="color:#f92672">::</span>buttonClicked(Button<span style="color:#f92672">*</span> btn)
+{
+    <span style="color:#66d9ef">if</span> (btn <span style="color:#f92672">==</span> <span style="color:#f92672">&amp;</span>btnCreateDrum)
+    {
+		mutexFDTD.lock();
+
+		<span style="color:#75715e">//Recreate FDTD synthesizer...
+</span><span style="color:#75715e"></span>
+		mutexFDTD.unlock();
+    }
+}
+</code></pre></div><p><!-- raw HTML omitted --></p>
+<h2 id="conclusion">Conclusion</h2>
+<p>This project aimed to demonstrate if GPU processing was a viable option for digital audio synthesis with real-time requirements. In this scenario, a FDTD synthesizer was processed on the GPU and appeared to meet acceptable real-time performance when interacting through a Sensel Morph pressure sensor. The dimensions/size of the physical models represented where only achievable on the modest laptop system by utilizing the massively parallel processing available from the GPU. In digital audio processing, there seems to be some reluctance to pursue GPU acceleration because of the communication overhead involved when using the GPU. With the correct techniques to reduce communication overhead and only processing suitable tasks on the GPU, there is huge potential for computing digital audio on GPUs.</p>
+<p>You can find the source code for the current implementation <a href="https://github.com/Harri-Renney/Interactive_2D_Physical_Models">here</a></p>
+<p>Demonstration video download: <a href="PhysicalModelGPUDemonstration.zip">PhysicalModelGPUDemonstration</a></p>
+
+  </div>
+  
+  <div class="pagination">
+    <div class="pagination__title">
+    </div>
+    <div class="pagination__buttons">
+    </div>
+  </div>
+  
+
+  
+
+</div>
+
+  </div>
+
+  
+    <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright">
+        <span>© 2020 <a href="https://www1.uwe.ac.uk/et/research/csrc.aspx">Physcial Computing @ UWE</a></span>
+      </div>
+    
+  </div>
+</footer>
+
+<script src="/assets/main.js"></script>
+<script src="/assets/prism.js"></script>
+
+
+
+
+
+  
+</div>
+
+</body>
+</html>
