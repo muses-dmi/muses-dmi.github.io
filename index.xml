@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Muses - Digital Musical Instruments on Muses</title>
@@ -23,6 +23,15 @@ Being one of the most influencial controllable parameters, the buffer size is sc
     </item>
     
     <item>
+      <title>PM_GPUs</title>
+      <link>/pm_gpus/overview/</link>
+      <pubDate>Wed, 20 Nov 2019 08:16:30 +0100</pubDate>
+      
+      <guid>/pm_gpus/overview/</guid>
+      <description>Numerical Methods for Physical Modelling and GPUs Direct numerical methods which have long been studied and applied in physics and mathematics are powerful schemes used to simulate physical phenomena. By simulating the physics of sound wave propagation through instruments and environments, new synthesizers and effects can be accuratly modelled. Physical modelling was for a long time impracticle to compute for most applications. With the level of computational power available today, they are becoming more viable.</description>
+    </item>
+    
+    <item>
       <title>benchmarking</title>
       <link>/benchmarking/overview/</link>
       <pubDate>Wed, 20 Nov 2019 08:16:30 +0100</pubDate>
@@ -42,23 +51,15 @@ Benchmarking Database - There and Back Again:The Practicality of GPU Accelerated
     </item>
     
     <item>
-      <title>PM_GPUs</title>
-      <link>/pm_gpus/overview/</link>
-      <pubDate>Wed, 20 Nov 2019 08:16:30 +0100</pubDate>
-      
-      <guid>/pm_gpus/overview/</guid>
-      <description>Numerical Methods for Physical Modelling and GPUs Direct numerical methods which have long been studied and applied in physics and mathematics are powerful schemes used to simulate physical phenomena. By simulating the physics of sound wave propagation through instruments and environments, new synthesizers and effects can be accuratly modelled. Physical modelling was for a long time impracticle to compute for most applications. With the level of computational power available today, they are becoming more viable.</description>
-    </item>
-    
-    <item>
       <title>Examples</title>
       <link>/pat/listen/</link>
       <pubDate>Fri, 09 Aug 2019 16:42:08 +0100</pubDate>
       
       <guid>/pat/listen/</guid>
-      <description>Audio Examples Perhaps the best way to get familiar with Pat is to take a listen.
+      <description> Audio Examples Perhaps the best way to get familiar with Pat is to take a listen.
 We can listen to an example of Pat directly converted to audio in this example:
-To help get a feel for what is happening, we can listen to this pattern looped, with some percussion used to ground where the sequence synchronizes.</description>
+ To help get a feel for what is happening, we can listen to this pattern looped, with some percussion used to ground where the sequence synchronizes.
+ </description>
     </item>
     
     <item>
@@ -67,9 +68,9 @@ To help get a feel for what is happening, we can listen to this pattern looped, 
       <pubDate>Fri, 09 Aug 2019 16:42:08 +0100</pubDate>
       
       <guid>/pat/synth/</guid>
-      <description>Muses Audio Platform We expose a method for configuring the step sequencer found in the Muses Audio Platform using Pat.
+      <description> Muses Audio Platform We expose a method for configuring the step sequencer found in the Muses Audio Platform using Pat.
 In this screen grab of the application, we can see the following pat expression has been used to layout the step sequencer:
-y y y y r y | : | r y y y | : | r y y y o y o</description>
+y y y y r y | : | r y y y | : | r y y y o y o  </description>
     </item>
     
     <item>
@@ -100,9 +101,9 @@ Applications - Audio Examples We can listen to an example of Pat directly conver
       <guid>/papers/</guid>
       <description>Renney, Harri., Gaster, Benedict. R. and Mitchell, Tom. (2020) There and Back Again: The Practicality of GPU Accelerated Digital Audio. To appear in NIME&amp;rsquo;20: Proceedings of the 20th New Interfaces for Musical Expression, June 2020.
 Paper
- Benedict R. Gaster and Carinna Parraman. (2019) Printing the Muses: Reimaging digital musical instruments through 2.5D printing. In: Proceedings of the IS&amp;amp;T Printing for Fabrication, 2019.
+Benedict R. Gaster and Carinna Parraman. (2019) Printing the Muses: Reimaging digital musical instruments through 2.5D printing. In: Proceedings of the IS&amp;amp;T Printing for Fabrication, 2019.
 Paper Poster
- Nathan Renney and Benedict R.</description>
+Nathan Renney and Benedict R. Gaster. (2019) Digital Expression and Representation of Rhythm.</description>
     </item>
     
     <item>

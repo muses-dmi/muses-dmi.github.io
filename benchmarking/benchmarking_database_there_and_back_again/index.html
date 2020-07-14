@@ -148,14 +148,24 @@ Being one of the most influencial controllable parameters, the buffer size is sc
   
 
   <div class="post-content">
-    <h2 id="benchmarking-methodology">Benchmarking Methodology</h2>
+    
+
+<h2 id="benchmarking-methodology">Benchmarking Methodology</h2>
+
 <p>(Explain method.)</p>
+
 <p>Warmup run.</p>
+
 <p>Being one of the most influencial controllable parameters, the buffer size is scaled in the tests and the performance measured. The buffer size was scaled by powers of two, starting at a buffer size of one, up to a size of 32768. This is an exponential increase which does avoid detailed measurements at larger buffer sizes as the steps are bigger. However, this was chosen as it gives fine detailed measurmeents at smaller buffer sizes which are of particular interest to people working in real-time digital audio, whilst also covering the larger buffer sizes to demonstrate real-time issues and offline capabilities.</p>
+
 <h2 id="benchmarking-tests">Benchmarking Tests</h2>
+
 <p>A number of different benchmarking tests were designed to test different types of typical processes which can be offloaded to the GPU. These vary from simple tests where buffers of samples are transfered back and forth (bidrectional) to the GPU to simple unidirectional synthesis methods. These will be described in more detail in the following sections.</p>
+
 <h1 id="simple-synthesis">Simple Synthesis</h1>
+
 <p>You can find the source code for the benchmarking suite: <a href="https://github.com/Harri-Renney/ThereAndBackAgain-NIME">here</a></p>
+
 <p>Database of benchmarking results: <a href="benchmarking_database_there_and_back_again.zip">download</a></p>
 
   </div>
