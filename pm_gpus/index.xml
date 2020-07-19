@@ -26,7 +26,7 @@
       <pubDate>Wed, 20 Nov 2019 08:16:30 +0100</pubDate>
       
       <guid>/pm_gpus/gpu_accelerated_2d_physical_model/</guid>
-      <description>GPU-Accelerated Physical Model For Real-time Drumhead Synthesis This post covers the highlights of the code base used to present the GPU-accelerated drumhead physical model program. This application was demonstrated at the Audio Developers Conference 2019 and the conference of New Instruments for Musical Expression (NIME 2020). The application presents a model of a 2D drumhead physical model based on direct numerical methods from mathematical simulations. Specifically, the model uses finite differencing methods based within the time-domain.</description>
+      <description>GPU-Accelerated Physical Model For Real-time Drumhead Synthesis This post covers the highlights of the code base used to present the GPU-accelerated drumhead physical model program. This application was demonstrated at the Audio Developers Conference (ADC 2019) and the conference of New Instruments for Musical Expression (NIME 2020). The application presents a model of a 2D drumhead physical model based on direct numerical methods from mathematical simulations. Specifically, the model uses finite differencing methods based within the time-domain.</description>
     </item>
     
   </channel>

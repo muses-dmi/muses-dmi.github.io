@@ -6,7 +6,7 @@
   
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-<meta name="description" content="GPU-Accelerated Physical Model For Real-time Drumhead Synthesis This post covers the highlights of the code base used to present the GPU-accelerated drumhead physical model program. This application was demonstrated at the Audio Developers Conference 2019 and the conference of New Instruments for Musical Expression (NIME 2020). The application presents a model of a 2D drumhead physical model based on direct numerical methods from mathematical simulations. Specifically, the model uses finite differencing methods based within the time-domain."/>
+<meta name="description" content="GPU-Accelerated Physical Model For Real-time Drumhead Synthesis This post covers the highlights of the code base used to present the GPU-accelerated drumhead physical model program. This application was demonstrated at the Audio Developers Conference (ADC 2019) and the conference of New Instruments for Musical Expression (NIME 2020). The application presents a model of a 2D drumhead physical model based on direct numerical methods from mathematical simulations. Specifically, the model uses finite differencing methods based within the time-domain."/>
 <meta name="keywords" content=""/>
 <meta name="robots" content="noodp"/>
 <link rel="canonical" href="/pm_gpus/gpu_accelerated_2d_physical_model/" />
@@ -29,7 +29,7 @@
 
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:title" content="gpu_accelerated_2d_physical_model :: Muses — Digital Musical Instruments" />
-<meta name="twitter:description" content="GPU-Accelerated Physical Model For Real-time Drumhead Synthesis This post covers the highlights of the code base used to present the GPU-accelerated drumhead physical model program. This application was demonstrated at the Audio Developers Conference 2019 and the conference of New Instruments for Musical Expression (NIME 2020). The application presents a model of a 2D drumhead physical model based on direct numerical methods from mathematical simulations. Specifically, the model uses finite differencing methods based within the time-domain." />
+<meta name="twitter:description" content="GPU-Accelerated Physical Model For Real-time Drumhead Synthesis This post covers the highlights of the code base used to present the GPU-accelerated drumhead physical model program. This application was demonstrated at the Audio Developers Conference (ADC 2019) and the conference of New Instruments for Musical Expression (NIME 2020). The application presents a model of a 2D drumhead physical model based on direct numerical methods from mathematical simulations. Specifically, the model uses finite differencing methods based within the time-domain." />
 <meta name="twitter:site" content="/" />
 <meta name="twitter:creator" content="" />
 <meta name="twitter:image" content="">
@@ -38,7 +38,7 @@
 <meta property="og:locale" content="en" />
 <meta property="og:type" content="article" />
 <meta property="og:title" content="gpu_accelerated_2d_physical_model :: Muses — Digital Musical Instruments">
-<meta property="og:description" content="GPU-Accelerated Physical Model For Real-time Drumhead Synthesis This post covers the highlights of the code base used to present the GPU-accelerated drumhead physical model program. This application was demonstrated at the Audio Developers Conference 2019 and the conference of New Instruments for Musical Expression (NIME 2020). The application presents a model of a 2D drumhead physical model based on direct numerical methods from mathematical simulations. Specifically, the model uses finite differencing methods based within the time-domain." />
+<meta property="og:description" content="GPU-Accelerated Physical Model For Real-time Drumhead Synthesis This post covers the highlights of the code base used to present the GPU-accelerated drumhead physical model program. This application was demonstrated at the Audio Developers Conference (ADC 2019) and the conference of New Instruments for Musical Expression (NIME 2020). The application presents a model of a 2D drumhead physical model based on direct numerical methods from mathematical simulations. Specifically, the model uses finite differencing methods based within the time-domain." />
 <meta property="og:url" content="/pm_gpus/gpu_accelerated_2d_physical_model/" />
 <meta property="og:site_name" content="gpu_accelerated_2d_physical_model" />
 <meta property="og:image" content="">
@@ -124,6 +124,12 @@
   
 </header>
 
+<script type="text/javascript"
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({ tex2jax: {inlineMath: [["$","$"],["\\(","\\)"]]} })
+</script>
 
   <div class="content">
     
@@ -146,9 +152,9 @@
 
 <h1 id="gpu-accelerated-physical-model-for-real-time-drumhead-synthesis">GPU-Accelerated Physical Model For Real-time Drumhead Synthesis</h1>
 
-<p>This post covers the highlights of the code base used to present the GPU-accelerated drumhead physical model program. This application was demonstrated at the <a href="https://juce.com/adc">Audio Developers Conference 2019</a> and the conference of New Instruments for Musical Expression (<a href="https://nime2020.bcu.ac.uk/">NIME 2020</a>). The application presents a model of a 2D drumhead physical model based on direct numerical methods from mathematical simulations. Specifically, the model uses finite differencing methods based within the time-domain. These methods are known as finite-difference time-domain(FDTD) simulations. Therefore, the GPU-accelerated drumhead physical model will be referred to as such in the rest of the post.</p>
+<p>This post covers the highlights of the code base used to present the GPU-accelerated drumhead physical model program. This application was demonstrated at the Audio Developers Conference (<a href="https://juce.com/adc">ADC 2019</a>) and the conference of New Instruments for Musical Expression (<a href="https://nime2020.bcu.ac.uk/">NIME 2020</a>). The application presents a model of a 2D drumhead physical model based on direct numerical methods from mathematical simulations. Specifically, the model uses finite differencing methods based within the time-domain. These methods are known as finite-difference time-domain(FDTD) simulations. Therefore, the GPU-accelerated drumhead physical model will be referred to as such in the rest of the post.</p>
 
-<p><img class="special-img-class" style="width:100%;height:50%" src="/assets/drumhead_demo.png" /></p>
+<p><img class="special-img-class" style="width:100%;height:50%" src="/assets/physical_models&benchmarking/drumhead_demo.png" /></p>
 
 <h2 id="fdtd-synthesizer">FDTD synthesizer</h2>
 
@@ -338,7 +344,7 @@ void MainComponent::buttonClicked(Button* btn)
 }
 </code></pre>
 
-<p><img class="special-img-class" style="width:100%;height:50%" src="/assets/drumhead_demo_relation_diagram.png" /></p>
+<p><img class="special-img-class" style="width:100%;height:50%" src="/assets/physical_models&benchmarking/drumhead_demo_relation_diagram.png" /></p>
 
 <h2 id="conclusion">Conclusion</h2>
 
@@ -346,7 +352,7 @@ void MainComponent::buttonClicked(Button* btn)
 
 <p>You can find the source code for the current implementation <a href="https://github.com/Harri-Renney/Interactive_2D_Physical_Models">here</a></p>
 
-<p>Demonstration video download: <a href="/assets/PhysicalModelGPUDemonstration.zip">PhysicalModelGPUDemonstration</a></p>
+<p>Demonstration video download: <a href="/assets/physical_models&amp;benchmarking/PhysicalModelGPUDemonstration.zip">PhysicalModelGPUDemonstration</a></p>
 
   </div>
   
@@ -369,7 +375,7 @@ void MainComponent::buttonClicked(Button* btn)
   <div class="footer__inner">
     
       <div class="copyright">
-        <span>© 2020 <a href="https://www1.uwe.ac.uk/et/research/csrc.aspx">Physcial Computing @ UWE</a></span>
+        <span>© 2020 <a href="https://www1.uwe.ac.uk/et/research/csrc.aspx">Physical Computing @ UWE</a></span>
       </div>
     
   </div>

@@ -17,9 +17,7 @@
       <pubDate>Mon, 20 Apr 2020 08:16:30 +0100</pubDate>
       
       <guid>/benchmarking/benchmarking_database_there_and_back_again/</guid>
-      <description>Benchmarking Methodology (Explain method.)
-Warmup run.
-Being one of the most influencial controllable parameters, the buffer size is scaled in the tests and the performance measured. The buffer size was scaled by powers of two, starting at a buffer size of one, up to a size of 32768. This is an exponential increase which does avoid detailed measurements at larger buffer sizes as the steps are bigger. However, this was chosen as it gives fine detailed measurmeents at smaller buffer sizes which are of particular interest to people working in real-time digital audio, whilst also covering the larger buffer sizes to demonstrate real-time issues and offline capabilities.</description>
+      <description>Benchmarking Database for &amp;ldquo;There and Back Again: The Practicality of GPU Accelerated Digital Audio&amp;rdquo; This blog post is written to accompany the paper titled &amp;ldquo;There and Back Again: The Practicality of GPU Accelerated Digital Audio&amp;rdquo; presented at the conference of New Instruments for Musical Expression (NIME 2020). The paper can be found here, though the page limit meant that many details had to be left out. This post gives the needed space to cover the benchmarking methodology further, the details of all the tests and how to use the benchmarking suite.</description>
     </item>
     
     <item>
@@ -47,7 +45,7 @@ Benchmarking Database - There and Back Again:The Practicality of GPU Accelerated
       <pubDate>Wed, 20 Nov 2019 08:16:30 +0100</pubDate>
       
       <guid>/pm_gpus/gpu_accelerated_2d_physical_model/</guid>
-      <description>GPU-Accelerated Physical Model For Real-time Drumhead Synthesis This post covers the highlights of the code base used to present the GPU-accelerated drumhead physical model program. This application was demonstrated at the Audio Developers Conference 2019 and the conference of New Instruments for Musical Expression (NIME 2020). The application presents a model of a 2D drumhead physical model based on direct numerical methods from mathematical simulations. Specifically, the model uses finite differencing methods based within the time-domain.</description>
+      <description>GPU-Accelerated Physical Model For Real-time Drumhead Synthesis This post covers the highlights of the code base used to present the GPU-accelerated drumhead physical model program. This application was demonstrated at the Audio Developers Conference (ADC 2019) and the conference of New Instruments for Musical Expression (NIME 2020). The application presents a model of a 2D drumhead physical model based on direct numerical methods from mathematical simulations. Specifically, the model uses finite differencing methods based within the time-domain.</description>
     </item>
     
     <item>
