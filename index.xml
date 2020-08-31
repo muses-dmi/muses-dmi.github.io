@@ -12,6 +12,16 @@
     
     
     <item>
+      <title>Audio Anywhere</title>
+      <link>/audio_anywhere/overview/</link>
+      <pubDate>Mon, 31 Aug 2020 08:16:30 +0100</pubDate>
+      
+      <guid>/audio_anywhere/overview/</guid>
+      <description>Overview The ideal of compile once and run anywhere has been a dream in computer science for as long as it has been an area of research. From the early days of Lisp, through to Java and Python with its import ideal. However, to date these offerings, as amazing as they are, have failed to reach performance close to what system languages C and C++ can achieve.
+Over the last few years a new kid on the block has emerged as an interesting inflection point in the search for a compile once, run anywhere target for compiling system based languages.</description>
+    </item>
+    
+    <item>
       <title>benchmarking_database_there_and_back_again</title>
       <link>/benchmarking/benchmarking_database_there_and_back_again/</link>
       <pubDate>Mon, 20 Apr 2020 08:16:30 +0100</pubDate>
@@ -128,9 +138,11 @@ Nathan Renney and Benedict R. Gaster. (2019) Digital Expression and Representati
       <pubDate>Fri, 10 May 2019 13:29:41 +0100</pubDate>
       
       <guid>/projects/</guid>
-      <description>SVG Interfaces SVG Interfaces is an on going project exploring the design and implementation of custom controller interfaces, bridging the issue of user mapping between action and sound in interactive music systems.
+      <description>Audio Anywhere Audio Anywhere is a recent project, which aims to explore the idea of compile once, run anywhere for audio DSP code.
 More information can be found here.
-Pat - DSL for exploring Polyrhythm and Polymeter Music provides a means to explore time by sequencing musical events in a seemingly endless and expressive way. Pat is a project that takes inspiration from Tidal Cycles and provides a means to explore advanced rhythmic concepts like polyrhythm and polymeter within the context of designing digital musical instruments.</description>
+SVG Interfaces SVG Interfaces is an on going project exploring the design and implementation of custom controller interfaces, bridging the issue of user mapping between action and sound in interactive music systems.
+More information can be found here.
+Pat - DSL for exploring Polyrhythm and Polymeter Music provides a means to explore time by sequencing musical events in a seemingly endless and expressive way.</description>
     </item>
     
   </channel>

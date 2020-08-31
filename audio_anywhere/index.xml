@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Audio_anywheres on Muses</title>
+    <link>/audio_anywhere/</link>
+    <description>Recent content in Audio_anywheres on Muses</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 31 Aug 2020 08:16:30 +0100</lastBuildDate>
+    
+	<atom:link href="/audio_anywhere/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Audio Anywhere</title>
+      <link>/audio_anywhere/overview/</link>
+      <pubDate>Mon, 31 Aug 2020 08:16:30 +0100</pubDate>
+      
+      <guid>/audio_anywhere/overview/</guid>
+      <description>Overview The ideal of compile once and run anywhere has been a dream in computer science for as long as it has been an area of research. From the early days of Lisp, through to Java and Python with its import ideal. However, to date these offerings, as amazing as they are, have failed to reach performance close to what system languages C and C++ can achieve.
+Over the last few years a new kid on the block has emerged as an interesting inflection point in the search for a compile once, run anywhere target for compiling system based languages.</description>
+    </item>
+    
+  </channel>
+</rss>

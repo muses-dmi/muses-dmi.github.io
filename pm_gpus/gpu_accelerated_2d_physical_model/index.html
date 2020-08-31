@@ -324,22 +324,22 @@ copying the samples, there is the opportunity to apply further processing to the
 
 <pre><code class="language-c">void MainComponent::getNextAudioBlock(const AudioSourceChannelInfo&amp; outputBuffer)
 {
-    mutexFDTD.lock();
+	mutexFDTD.lock();
 
-    //FDTD synthesizer generates a buffer of samples...
+	//FDTD synthesizer generates a buffer of samples...
 
-    mutexFDTD.unlock();
+	mutexFDTD.unlock();
 }
 
 void MainComponent::buttonClicked(Button* btn)
 {
     if (btn == &amp;btnCreateDrum)
     {
-        mutexFDTD.lock();
+		mutexFDTD.lock();
 
-        //Recreate FDTD synthesizer...
+		//Recreate FDTD synthesizer...
 
-        mutexFDTD.unlock();
+		mutexFDTD.unlock();
     }
 }
 </code></pre>
