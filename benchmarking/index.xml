@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Benchmarkings on Muses</title>
@@ -6,10 +6,15 @@
     <description>Recent content in Benchmarkings on Muses</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 20 Apr 2020 08:16:30 +0100</lastBuildDate>
-    
-	<atom:link href="/benchmarking/index.xml" rel="self" type="application/rss+xml" />
-    
+    <lastBuildDate>Sun, 10 Jan 2021 08:16:30 +0100</lastBuildDate><atom:link href="/benchmarking/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>benchmarking_database_survival_of_the_synthesis</title>
+      <link>/benchmarking/benchmarking_database_survival_of_the_synthesis/</link>
+      <pubDate>Sun, 10 Jan 2021 08:16:30 +0100</pubDate>
+      
+      <guid>/benchmarking/benchmarking_database_survival_of_the_synthesis/</guid>
+      <description>Benchmarking Database for &amp;ldquo;Survival of the Synthesis - GPU Accelerating Evolutionary Sound Matching&amp;rdquo; PLACEHOLDER</description>
+    </item>
     
     <item>
       <title>benchmarking_database_there_and_back_again</title>

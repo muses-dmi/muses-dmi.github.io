@@ -148,10 +148,7 @@ MathJax.Hub.Config({ tex2jax: {inlineMath: [["$","$"],["\\(","\\)"]]} })
   
 
   <div class="post-content">
-    
-
-<h1 id="overview">Overview</h1>
-
+    <h1 id="overview">Overview</h1>
 <p>SVG Interfaces is an on going project exploring the design and implementation of
 custom controller interfaces, bridging the issue of user mapping between action
 and sound in interactive music systems. We have developed a simple framework
@@ -159,144 +156,102 @@ utilizing functional specifications for musical interfaces and their mappings.
 The system is based on a subset of Scalable Vector Graphics (SVG); interfaces
 are described using a simple Haskell based &lsquo;controller DSL&rsquo; or equally using a
 vector drawing application (i.e. Illustrator).</p>
-
 <p>SVG Interfaces a designed as portable format for specifying control interfaces
 independenlty of any particular device, however, to show their practical use we
 have developed example backends for ROLI&rsquo;s
-<a href="https://roli.com/products/blocks/lightpad-m">Lightpad-M</a> and Sensel&rsquo;s
+<a href="https://roli.com/products/blocks/lightpad-m">Lightpad-M</a> and Sensel&rsquo;s 
 <a href="https://sensel.com/pages/the-sensel-morph">Morph</a>.</p>
-
 <p>The details of designing a control interface and supproting tools are detailed
 in the <a href="https://github.com/muses-dmi/svg-creator/blob/master/docs/interfaces.md">SVG Interface
 Documentation</a>,
 and additionaly below is a short introduction to SVG Interface design.</p>
-
 <p>Interfaces can be described using the Contoller DSL, for example, a common
 controller is a <strong>stop</strong> button, which emits a stop message each time it is
 pressed:</p>
-
-<pre><code class="language-haskell">stop ! #x 3 ! #y 3 ! #size 3 
-</code></pre>
-
-<p>Similar to SVG attributes named labels are used to pass information about
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-haskell" data-lang="haskell"><span style="color:#a6e22e">stop</span> <span style="color:#f92672">!</span> <span style="color:#f92672">#</span>x <span style="color:#ae81ff">3</span> <span style="color:#f92672">!</span> <span style="color:#f92672">#</span>y <span style="color:#ae81ff">3</span> <span style="color:#f92672">!</span> <span style="color:#f92672">#</span>size <span style="color:#ae81ff">3</span> 
+</code></pre></div><p>Similar to SVG attributes named labels are used to pass information about
 particular attributes of a controller, in this case a stop button has an x and y
 postion for its top left corner and a size, which sets its width and height in
 millimetres.</p>
-
 <p>More generally, a stop button is an instance of a <strong>pad</strong> and could just as easily be
 defined as such:</p>
-
-<pre><code class="language-haskell">pad ! #x 3 ! #y 3 ! #size 3 ! #address &quot;/stop/&quot; 
-</code></pre>
-
-<p>In both cases the following SVG code is produced:</p>
-
-<pre><code class="language-svg">&lt;rect interface_osc_address=&quot;/stop/&quot; 
-      width=&quot;3&quot; height=&quot;3&quot; 
-      interface_type=&quot;pad&quot;  
-      interface_osc_args=&quot;&quot; 
-      x=&quot;3&quot; y=&quot;3&quot;/&gt;
-</code></pre>
-
-<p>At this point we have defined only a controller, to create a valid interface, we
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-haskell" data-lang="haskell"><span style="color:#a6e22e">pad</span> <span style="color:#f92672">!</span> <span style="color:#f92672">#</span>x <span style="color:#ae81ff">3</span> <span style="color:#f92672">!</span> <span style="color:#f92672">#</span>y <span style="color:#ae81ff">3</span> <span style="color:#f92672">!</span> <span style="color:#f92672">#</span>size <span style="color:#ae81ff">3</span> <span style="color:#f92672">!</span> <span style="color:#f92672">#</span>address <span style="color:#e6db74">&#34;/stop/&#34;</span> 
+</code></pre></div><p>In both cases the following SVG code is produced:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-svg" data-lang="svg"><span style="color:#f92672">&lt;rect</span> <span style="color:#a6e22e">interface_osc_address=</span><span style="color:#e6db74">&#34;/stop/&#34;</span> 
+      <span style="color:#a6e22e">width=</span><span style="color:#e6db74">&#34;3&#34;</span> <span style="color:#a6e22e">height=</span><span style="color:#e6db74">&#34;3&#34;</span> 
+      <span style="color:#a6e22e">interface_type=</span><span style="color:#e6db74">&#34;pad&#34;</span>  
+      <span style="color:#a6e22e">interface_osc_args=</span><span style="color:#e6db74">&#34;&#34;</span> 
+      <span style="color:#a6e22e">x=</span><span style="color:#e6db74">&#34;3&#34;</span> <span style="color:#a6e22e">y=</span><span style="color:#e6db74">&#34;3&#34;</span><span style="color:#f92672">/&gt;</span>
+</code></pre></div><p>At this point we have defined only a controller, to create a valid interface, we
 must wrap any controllers within an interface itself. It it most simple form
 this can be found defining the function <code>interface</code>, so:</p>
-
-<pre><code class="language-haskell">interface = stop ! #x 3 ! #y 3 ! #size 3 
-</code></pre>
-
-<p>defines the complete interface:</p>
-
-<pre><code class="language-svg">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
-&lt;!DOCTYPE svg PUBLIC &quot;-//W3C//DTD SVG 1.1//EN&quot;
-    &quot;http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd&quot;&gt;
-      &lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; 
-        height=&quot;15mm&quot; width=&quot;15mm&quot;
-        viewBox=&quot;0 0 15 15&quot;  
-        xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; 
-        version=&quot;1.11.1&quot; 
-        interface_device=&quot;lightpad&quot;&gt;
-        &lt;rect interface_osc_address=&quot;/stop/&quot; 
-         width=&quot;3&quot; height=&quot;3&quot; 
-         interface_type=&quot;pad&quot;  
-         interface_osc_args=&quot;&quot; 
-         x=&quot;3&quot; y=&quot;3&quot;/&gt;
-      &lt;/svg&gt;
-</code></pre>
-
-<p>which can now be rendered:</p>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-haskell" data-lang="haskell"><span style="color:#a6e22e">interface</span> <span style="color:#f92672">=</span> stop <span style="color:#f92672">!</span> <span style="color:#f92672">#</span>x <span style="color:#ae81ff">3</span> <span style="color:#f92672">!</span> <span style="color:#f92672">#</span>y <span style="color:#ae81ff">3</span> <span style="color:#f92672">!</span> <span style="color:#f92672">#</span>size <span style="color:#ae81ff">3</span> 
+</code></pre></div><p>defines the complete interface:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-svg" data-lang="svg"><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+<span style="color:#75715e">&lt;!DOCTYPE svg PUBLIC &#34;-//W3C//DTD SVG 1.1//EN&#34;
+</span><span style="color:#75715e">    &#34;http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd&#34;&gt;</span>
+      <span style="color:#f92672">&lt;svg</span> <span style="color:#a6e22e">xmlns=</span><span style="color:#e6db74">&#34;http://www.w3.org/2000/svg&#34;</span> 
+        <span style="color:#a6e22e">height=</span><span style="color:#e6db74">&#34;15mm&#34;</span> <span style="color:#a6e22e">width=</span><span style="color:#e6db74">&#34;15mm&#34;</span>
+        <span style="color:#a6e22e">viewBox=</span><span style="color:#e6db74">&#34;0 0 15 15&#34;</span>  
+        <span style="color:#a6e22e">xmlns:xlink=</span><span style="color:#e6db74">&#34;http://www.w3.org/1999/xlink&#34;</span> 
+        <span style="color:#a6e22e">version=</span><span style="color:#e6db74">&#34;1.11.1&#34;</span> 
+        <span style="color:#a6e22e">interface_device=</span><span style="color:#e6db74">&#34;lightpad&#34;</span><span style="color:#f92672">&gt;</span>
+        <span style="color:#f92672">&lt;rect</span> <span style="color:#a6e22e">interface_osc_address=</span><span style="color:#e6db74">&#34;/stop/&#34;</span> 
+         <span style="color:#a6e22e">width=</span><span style="color:#e6db74">&#34;3&#34;</span> <span style="color:#a6e22e">height=</span><span style="color:#e6db74">&#34;3&#34;</span> 
+         <span style="color:#a6e22e">interface_type=</span><span style="color:#e6db74">&#34;pad&#34;</span>  
+         <span style="color:#a6e22e">interface_osc_args=</span><span style="color:#e6db74">&#34;&#34;</span> 
+         <span style="color:#a6e22e">x=</span><span style="color:#e6db74">&#34;3&#34;</span> <span style="color:#a6e22e">y=</span><span style="color:#e6db74">&#34;3&#34;</span><span style="color:#f92672">/&gt;</span>
+      <span style="color:#f92672">&lt;/svg&gt;</span>
+</code></pre></div><p>which can now be rendered:</p>
 <p><img class="special-img-class" style="width:25%;height:25%" src="/assets/example1.svg" /></p>
-
 <p>Here the border just highlights the interface&rsquo;s surrounding edge and plays no
 part in the final interface. For many interfaces the colour of a controller does
 not play a part, hence the default black, but for some, it can be used to
 control some aspect of the interface,  e.g. ROLI&rsquo;s Lightpad have RGB LEDS. For
 this a standard SVG <strong>fill</strong> attribute can be added:</p>
-
-<pre><code class="language-haskell">stop ! #x 3 ! #y 3 ! #size 3 # fill &quot;rgb(217,137,188)&quot;
-</code></pre>
-
-<p>and now renderers as:</p>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-haskell" data-lang="haskell"><span style="color:#a6e22e">stop</span> <span style="color:#f92672">!</span> <span style="color:#f92672">#</span>x <span style="color:#ae81ff">3</span> <span style="color:#f92672">!</span> <span style="color:#f92672">#</span>y <span style="color:#ae81ff">3</span> <span style="color:#f92672">!</span> <span style="color:#f92672">#</span>size <span style="color:#ae81ff">3</span> <span style="color:#f92672">#</span> fill <span style="color:#e6db74">&#34;rgb(217,137,188)&#34;</span>
+</code></pre></div><p>and now renderers as:</p>
 <p><img class="special-img-class" style="width:25%;height:25%" src="/assets/example2.svg" /></p>
-
 <p>More complex interfaces are composed from smaller ones using the combinator &lt;&gt;, the following
 implements a simple interface with stop, play, and record controls:</p>
-
-<pre><code class="language-haskell">stop ! #x 27 ! #y 2 ! #size 25
-&lt;&gt;
-play ! #v1 (22,14) ! #v2 (2,2) ! #v3 (2,27)
-&lt;&gt;
-record ! #x 69 ! #y 14 ! #r 12
-</code></pre>
-
-<p>And as a rendered SVG:</p>
-
-<p><img class="special-img-class" style="width:40%;height:40%" src="/assets/example3.svg"/></p>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-haskell" data-lang="haskell"><span style="color:#a6e22e">stop</span> <span style="color:#f92672">!</span> <span style="color:#f92672">#</span>x <span style="color:#ae81ff">27</span> <span style="color:#f92672">!</span> <span style="color:#f92672">#</span>y <span style="color:#ae81ff">2</span> <span style="color:#f92672">!</span> <span style="color:#f92672">#</span>size <span style="color:#ae81ff">25</span>
+<span style="color:#f92672">&lt;&gt;</span>
+<span style="color:#a6e22e">play</span> <span style="color:#f92672">!</span> <span style="color:#f92672">#</span>v1 (<span style="color:#ae81ff">22</span>,<span style="color:#ae81ff">14</span>) <span style="color:#f92672">!</span> <span style="color:#f92672">#</span>v2 (<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">2</span>) <span style="color:#f92672">!</span> <span style="color:#f92672">#</span>v3 (<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">27</span>)
+<span style="color:#f92672">&lt;&gt;</span>
+<span style="color:#a6e22e">record</span> <span style="color:#f92672">!</span> <span style="color:#f92672">#</span>x <span style="color:#ae81ff">69</span> <span style="color:#f92672">!</span> <span style="color:#f92672">#</span>y <span style="color:#ae81ff">14</span> <span style="color:#f92672">!</span> <span style="color:#f92672">#</span>r <span style="color:#ae81ff">12</span>
+</code></pre></div><p>And as a rendered SVG:</p>
+<img class="special-img-class" style="width:40%;height:40%" src="/assets/example3.svg"/>
 <h1 id="a-full-example">A Full Example</h1>
-
 <p>A more complete example is shown in the following SVG interface code for a four
 button (pad) and four slider controller interface designed for ROLI&rsquo;s
 <a href="https://roli.com/products/blocks/lightpad-m">Lightpad</a>:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-haskell" data-lang="haskell"><span style="color:#a6e22e">lightpad</span> <span style="color:#f92672">=</span> 
+    mconcat (map p [(<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">100</span>), (<span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">101</span>), (<span style="color:#ae81ff">8</span>, <span style="color:#ae81ff">102</span>), (<span style="color:#ae81ff">12</span>, <span style="color:#ae81ff">103</span>)])
+    <span style="color:#f92672">&lt;&gt;</span>
+    mconcat (map s [(<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">104</span>), (<span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">105</span>), (<span style="color:#ae81ff">8</span>, <span style="color:#ae81ff">106</span>), (<span style="color:#ae81ff">12</span>, <span style="color:#ae81ff">107</span>)])
+    <span style="color:#66d9ef">where</span>
+      p <span style="color:#f92672">=</span> <span style="color:#a6e22e">\</span>(x, cc) <span style="color:#f92672">-&gt;</span> pad <span style="color:#f92672">!</span> <span style="color:#f92672">#</span>x x <span style="color:#f92672">!</span> <span style="color:#f92672">#</span>y <span style="color:#ae81ff">0</span> <span style="color:#f92672">!</span> <span style="color:#f92672">#</span>size <span style="color:#ae81ff">3</span> <span style="color:#f92672">!</span> <span style="color:#f92672">#</span>address <span style="color:#e6db74">&#34;/midicc&#34;</span> 
+                          <span style="color:#f92672">#</span> iargs [cc] <span style="color:#f92672">#</span> fill <span style="color:#e6db74">&#34;rgb(217,137,188)&#34;</span>
+      s <span style="color:#f92672">=</span> <span style="color:#a6e22e">\</span>(x, cc) <span style="color:#f92672">-&gt;</span> 
+        vertSlider <span style="color:#f92672">!</span> <span style="color:#f92672">#</span>x x <span style="color:#f92672">!</span> <span style="color:#f92672">#</span>y <span style="color:#ae81ff">4</span>
+                   <span style="color:#f92672">!</span> <span style="color:#f92672">#</span>width <span style="color:#ae81ff">3</span> <span style="color:#f92672">!</span> <span style="color:#f92672">#</span>height <span style="color:#ae81ff">11</span> <span style="color:#f92672">!</span> <span style="color:#f92672">#</span>min <span style="color:#ae81ff">0</span> <span style="color:#f92672">!</span> <span style="color:#f92672">#</span>max <span style="color:#ae81ff">127</span> <span style="color:#f92672">!</span> <span style="color:#f92672">#</span>address <span style="color:#e6db74">&#34;/midicc&#34;</span> 
+                   <span style="color:#f92672">#</span> fill <span style="color:#e6db74">&#34;rgb(96,95,164)&#34;</span> <span style="color:#f92672">#</span> iargs [cc]
 
-<pre><code class="language-haskell">lightpad = 
-    mconcat (map p [(0,100), (4, 101), (8, 102), (12, 103)])
-    &lt;&gt;
-    mconcat (map s [(0,104), (4, 105), (8, 106), (12, 107)])
-    where
-      p = \(x, cc) -&gt; pad ! #x x ! #y 0 ! #size 3 ! #address &quot;/midicc&quot; 
-                          # iargs [cc] # fill &quot;rgb(217,137,188)&quot;
-      s = \(x, cc) -&gt; 
-        vertSlider ! #x x ! #y 4
-                   ! #width 3 ! #height 11 ! #min 0 ! #max 127 ! #address &quot;/midicc&quot; 
-                   # fill &quot;rgb(96,95,164)&quot; # iargs [cc]
-
-interface = lightpad
-</code></pre>
-
-<p>This example demostrates the power of a programmatic approach, here combining
+<span style="color:#a6e22e">interface</span> <span style="color:#f92672">=</span> lightpad
+</code></pre></div><p>This example demostrates the power of a programmatic approach, here combining
 well known higher order functions, e.g. map, from function programming to
 recursively layout the multiple pads and sliders.</p>
-
 <p>The above SVG interface specification is complied to an SVG with the <a href="https://github.com/muses-dmi/svg-creator">SVG
 Creator tool</a>. The SVG, created with
 SVG Creator, is rendered as:</p>
-
 <p><img class="special-img-class" style="width:50%;height:50%" src="/assets/lightpad.svg" /></p>
-
 <h1 id="more-information">More Information</h1>
-
 <p>Tool and documentation for specification of interfaces as SVGs:</p>
-
 <ul>
 <li><a href="https://github.com/muses-dmi/svg-creator">SVG Creator tool</a>.</li>
 <li><a href="https://github.com/muses-dmi/svg-creator/blob/master/docs/interfaces.md">SVG Interface Documentation</a>.</li>
 </ul>
-
 <p>Tools for translating SVG Interfaces to the JSON intermidiate representation and different backends:</p>
-
 <ul>
 <li><a href="https://github.com/muses-dmi/svg_interface">SVG Interface to IR tool</a>.</li>
 <li><a href="https://github.com/muses-dmi/svg-littlefoot">Interface IR to Littlefoot tool</a>.</li>
